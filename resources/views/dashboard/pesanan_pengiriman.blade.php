@@ -18,8 +18,9 @@
                         <tr>
                             <th>No</th>
                             <th>Jasa Ekspedisi</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Jumlah Pesanan</th>
                             <th>Harga Ongkir</th>
-                            <th>Alamat Pengirim</th>
                             <th>Alamat Tujuan</th>
                             <th>Tanggal Pengiriman</th>
                             <th>Estimasi</th>
@@ -29,27 +30,32 @@
                     </thead>
                     <tbody>
                         @foreach ($pengiriman as $item)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->jasa_ekspedisi }}</td>
-                                <td>
-                                    Rp. {{ number_format($item->harga_ongkir, 0, ',', '.') }}
-                                </td>
-                                <td>{{ $item->alamat }}</td>
-                                <td>{{ $item->alamat_tujuan }}</td>
-                                <td>
-                                    {{ \Carbon\Carbon::parse($item->tanggal_pengiriman)->format('d F Y') }}
-                                </td>
-                                <td> {{ $item->estimasi }} </td>
-                                <td>
-                                    {{ \Carbon\Carbon::parse($item->tanggal_tiba)->format('d F Y') }}
-                                </td>
-                                <td>
-                                    <button class="btn icon btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#update{{ $item->id }}"><i class="bi bi-pencil"></i></button>
-                                </td>
-                            </tr>
+                            @foreach ($item->pesanan as $pesanan)
+                                <tr>
+                                    <td>{{ $loop->parent->iteration }}</td>
+                                    <td>{{ $item->jasa_ekspedisi }}</td>
+                                    <td>{{ $pesanan->user->name }}</td>
+                                    <td>{{ $pesanan->produk->nama }} x {{ $pesanan->qty }}</td>
+                                    <td>
+                                        Rp. {{ number_format($item->harga_ongkir, 0, ',', '.') }}
+                                    </td>
+                                    <td>{{ $item->alamat_tujuan }}</td>
+                                    <td>
+                                        {{ \Carbon\Carbon::parse($item->tanggal_pengiriman)->format('d F Y') }}
+                                    </td>
+                                    <td> {{ $item->estimasi }} </td>
+                                    <td>
+                                        {{ \Carbon\Carbon::parse($item->tanggal_tiba)->format('d F Y') }}
+                                    </td>
+                                    <td>
+                                        <button class="btn icon btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#update{{ $item->id }}"><i
+                                                class="bi bi-pencil"></i></button>
+                                    </td>
+                                </tr>
+                            @endforeach
                         @endforeach
+
                     </tbody>
                 </table>
             </div>

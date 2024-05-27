@@ -11,22 +11,30 @@ class PengirimanController extends Controller
     public function index()
     {
         $pengiriman = Pengiriman::with('pesanan')->OrderByDesc('id')->get();
+        return view('dashboard.pengiriman', compact('pengiriman'));
+    }
+
+    public function indexPengirimanPesanan()
+    {
+        $pengiriman = Pengiriman::with(['pesanan', 'pesanan.user', 'pesanan.produk'])->OrderByDesc('id')->get();
         $pesanan = Pesanan::with(['color', 'user', 'produk'])
             ->where('status_pembayaran', 'lunas')
-            ->where('status', 'selesai')
+            ->where('status', 'proses')
             ->where('pengiriman', 'pengiriman')
             ->get();
-        return view('dashboard.pengiriman', compact('pengiriman', 'pesanan'));
+        return view('dashboard.pesanan_pengiriman', compact('pengiriman', 'pesanan'));
     }
 
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'pesanan_id' => 'required',
-            'status' => 'required',
             'tanggal_pengiriman' => 'required',
             'estimasi' => 'required',
             'tanggal_tiba' => 'required',
+            'alamat' => 'required',
+            'alamat_tujuan' => 'required',
+            'jasa_ekspedisi' => 'required',
+            'harga_ongkir' => 'required',
         ]);
 
         Pengiriman::create($validateData);

@@ -11,19 +11,20 @@ class Pengiriman extends Model
     use HasFactory;
 
     protected $fillable = [
-        'pesanan_id',
         'status',
         'tanggal_pengiriman',
         'tanggal_tiba',
         'alamat_tujuan',
         'alamat',
         'estimasi',
+        'jasa_ekspedisi',
+        'harga_ongkir'
     ];
 
     protected $table = 'pengiriman';
 
     public function pesanan()
     {
-        return $this->belongsTo(Pesanan::class, 'pesanan_id');
+        return $this->hasMany(Pesanan::class);
     }
 }

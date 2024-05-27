@@ -56,7 +56,7 @@ Route::put('/pesanan/user/{id}', [DashboardController::class, 'update_pelunasan'
 Route::get('/user', [UserController::class, 'index'])->name('user')->middleware('isAuth');
 Route::put('/user-update', [UserController::class, 'updateUser'])->name('user-update')->middleware(['isAuth']);
 Route::put('/user-update-password-admin', [UserController::class, 'updatePassword'])->name('user-update-password-admin')->middleware(['isAuth']);
-Route::put('/user-update-profile', [UserController::class, 'updateUser'])->name('user-update-profile')->middleware(['isAuthUser']);
+Route::put('/user-update-profile', [UserController::class, 'update User'])->name('user-update-profile')->middleware(['isAuthUser']);
 Route::put('/user-update-password', [UserController::class, 'updatePassword'])->name('user-update-password')->middleware(['isAuthUser']);
 Route::get('/profile-admin', [DashboardController::class, 'profile_admin'])->name('profile-admin')->middleware('isAuth');
 Route::get('/profile-user', [DashboardController::class, 'profile_user'])->name('profile-user')->middleware('isAuthUser');
@@ -96,6 +96,7 @@ Route::post('/bahan/store', [BahanBakuController::class, 'store'])->name('bahan-
 
 
 Route::get('/pengiriman', [PengirimanController::class, 'index'])->name('pengiriman')->middleware('isAuth');
+Route::get('/pengiriman-pesanan', [PengirimanController::class, 'indexPengirimanPesanan'])->name('pengiriman.pesanan')->middleware('isAuth');
 Route::post('/pengiriman-store', [PengirimanController::class, 'store'])->name('pengiriman.store')->middleware('isAuth');
 Route::put('/pengiriman-update/{id}', [PengirimanController::class, 'update'])->name('pengiriman.update')->middleware('isAuth');
 
