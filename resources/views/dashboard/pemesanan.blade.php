@@ -10,7 +10,6 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">Tabel Pesanan</h5>
-                <button class="btn btn-primary float-end me-3" data-bs-toggle="modal" data-bs-target="#add">Tambah</button>
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">

@@ -159,7 +159,7 @@
                                 name="harga" />
                         </div>
                         <div class="form-group">
-                            <label for="first-name-vertical">Qty</label>
+                            <label for="first-name-vertical">Qty /m</label>
                             <input type="number" id="first-name-vertical" required class="form-control"
                                 name="qty" />
                         </div>
