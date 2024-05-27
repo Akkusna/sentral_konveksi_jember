@@ -86,39 +86,25 @@
                                 <table class="table table-hover table-lg">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Comment</th>
+                                            <th>Nama Pelanggan</th>
+                                            <th>Tanggal Pesan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="col-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar avatar-md">
-                                                        <img src="./assets/compiled/jpg/5.jpg">
+                                        @foreach ($pesananLatest as $item)
+                                            <tr>
+                                                <td class="col-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <p class="font-bold ms-3 mb-0">{{ $item->user->name }}</p>
                                                     </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Cantik</p>
-                                                </div>
-                                            </td>
-                                            <td class="col-auto">
-                                                <p class=" mb-0">Congratulations on your graduation!</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-3">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="avatar avatar-md">
-                                                        <img src="./assets/compiled/jpg/2.jpg">
-                                                    </div>
-                                                    <p class="font-bold ms-3 mb-0">Si Ganteng</p>
-                                                </div>
-                                            </td>
-                                            <td class="col-auto">
-                                                <p class=" mb-0">Wow amazing design! Can you make another
-                                                    tutorial for
-                                                    this design?</p>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                                <td class="col-auto">
+                                                    <p class=" mb-0">
+                                                        {{ \Carbon\Carbon::parse($item->created_at)->format('d F Y') }}
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -30,7 +30,6 @@
                             <h3>Setral</h3>
                         </div>
                         <div class="header-top-right">
-
                             <div class="dropdown">
                                 <a href="#" id="topbarUserDropdown"
                                     class="user-dropdown d-flex align-items-center dropend dropdown-toggle "

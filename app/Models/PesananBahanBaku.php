@@ -16,6 +16,9 @@ class PesananBahanBaku extends Model
     ];
 
     protected $table = 'detail_pesanan_bahan_baku';
+    public $incrementing = false;
+    protected $primaryKey = ['pesanan_id', 'bahan_baku_id'];
+    public $timestamps = true;
 
     public function bahanBaku()
     {

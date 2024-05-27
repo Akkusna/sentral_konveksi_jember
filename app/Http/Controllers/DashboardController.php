@@ -17,20 +17,29 @@ class DashboardController extends Controller
         $produk = Produk::count();
         $pesanan = Pesanan::count();
         $pengiriman = Pengiriman::count();
-        $userLatest = User::OrderByDesc('id')->take(5)->get();
-        $pesananLatest = Pesanan::OrderByDesc('id')->take(5)->get();
-        return view('dashboard.dashboard', compact('user', 'produk', 'pesanan', 'pengiriman', 'userLatest'));
+        $userLatest = User::OrderByDesc('id')->where('is_admin', '0')->take(5)->get();
+        $pesananLatest = Pesanan::with('user')->OrderByDesc('id')->take(5)->get();
+        return view('dashboard.dashboard', compact('user', 'produk', 'pesanan', 'pengiriman', 'userLatest', 'pesananLatest'));
     }
 
     public function index_user()
     {
         $user = auth()->user()->id;
-        $pesanan = Pesanan::where('user_id', $user)->count();
-        $pesanan = Pesanan::where('user_id', $user)
+
+        $pesanan = Pesanan::where('user_id', $user)->where('status', 'proses')->count();
+        $pesananFinish = Pesanan::where('user_id', $user)->where('status', 'selesai')->count();
+
+        $pengiriman = Pesanan::where('user_id', $user)
+            ->where('status', 'dalam pengiriman')
             ->whereNotNull('pengiriman_id')
             ->count();
 
-        return view('dashboard.user.home', compact('pesanan', 'pengiriman'));
+        $pengirimanFinish = Pesanan::where('user_id', $user)
+            ->where('status', 'selesai')
+            ->whereNotNull('pengiriman_id')
+            ->count();
+
+        return view('dashboard.user.home', compact('pesanan', 'pesananFinish', 'pengiriman', 'pengirimanFinish'));
     }
 
     public function pesanan_user()
