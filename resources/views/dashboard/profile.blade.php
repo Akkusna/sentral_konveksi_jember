@@ -70,12 +70,9 @@
                             </div>
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <h5 class="mt-4">Edit password admin</h5>
-                                <form class="mt-4" action="">
-                                    <div class="form-group">
-                                        <label for="first-name-vertical">Password Lama</label>
-                                        <input type="text" id="first-name-vertical" required class="form-control"
-                                            name="password" />
-                                    </div>
+                                <form class="mt-4" action="{{ route('user-update-password-admin') }} " method="POST">
+                                    @csrf
+                                    @method('PUT')
                                     <div class="form-group">
                                         <label for="first-name-vertical">Password Baru</label>
                                         <input type="text" id="first-name-vertical" required class="form-control"
@@ -84,7 +81,7 @@
                                     <div class="form-group">
                                         <label for="first-name-vertical">Konfirmasi Password Baru</label>
                                         <input type="text" id="first-name-vertical" required class="form-control"
-                                            name="new_password_confirm" />
+                                            name="confirm_password" />
                                     </div>
                                     <button type="submit" class="btn btn-primary ms-1 float-end mt-2">
                                         <i class="bx bx-check d-block d-sm-none"></i>

@@ -179,7 +179,7 @@
     </div>
     <!-- Shop Method End-->
     <!-- Best Collection Start -->
-    <div class="best-collection-area section-padding2">
+    {{-- <div class="best-collection-area section-padding2">
         <div class="container">
             <div class="row d-flex justify-content-between align-items-end">
                 <!-- Left content -->
@@ -234,6 +234,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Best Collection End -->
 @endsection

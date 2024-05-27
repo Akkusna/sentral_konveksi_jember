@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string("detail_pesanan")->nullable();
             $table->string("nota")->nullable();
             $table->string("qr_code")->nullable();
-            $table->enum("status", ['menunggu konfirmasi', 'proses', 'selesai']);
+            $table->enum("status", ['menunggu konfirmasi', 'proses', 'dalam pengiriman', 'selesai']);
             $table->enum("pengiriman", ['pengiriman', 'ambil sendiri']);
             $table->enum("status_pembayaran", ['belum_bayar', 'lunas', 'dp']);
             $table->timestamps();

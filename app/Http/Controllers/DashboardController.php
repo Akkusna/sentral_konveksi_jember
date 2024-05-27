@@ -24,7 +24,13 @@ class DashboardController extends Controller
 
     public function index_user()
     {
-        return view('dashboard.user.home');
+        $user = auth()->user()->id;
+        $pesanan = Pesanan::where('user_id', $user)->count();
+        $pesanan = Pesanan::where('user_id', $user)
+            ->whereNotNull('pengiriman_id')
+            ->count();
+
+        return view('dashboard.user.home', compact('pesanan', 'pengiriman'));
     }
 
     public function pesanan_user()
