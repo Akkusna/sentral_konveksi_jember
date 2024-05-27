@@ -134,8 +134,10 @@
                 <div class="card-content pb-4">
                     @foreach ($userLatest as $item)
                         <div class="recent-message d-flex px-4 py-3">
-                            <div class="avatar avatar-lg">
-                                <img src="./assets/compiled/jpg/7.jpg">
+                            <div class=" d-flex justify-content-start ">
+                                <div class="stats-icon blue mb-2">
+                                    <i class="iconly-boldProfile"></i>
+                                </div>
                             </div>
                             <div class="name ms-4">
                                 <h5 class="mb-1">{{ $item->name }}</h5>

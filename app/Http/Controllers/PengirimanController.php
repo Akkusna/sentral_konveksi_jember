@@ -17,12 +17,13 @@ class PengirimanController extends Controller
     public function indexPengirimanPesanan()
     {
         $pengiriman = Pengiriman::with(['pesanan', 'pesanan.user', 'pesanan.produk'])->OrderByDesc('id')->get();
-        $pesanan = Pesanan::with(['color', 'user', 'produk'])
+        $pesanan_user = Pesanan::with(['user', 'produk'])
             ->where('status_pembayaran', 'lunas')
             ->where('status', 'proses')
             ->where('pengiriman', 'pengiriman')
+            ->where('pengiriman_id', null)
             ->get();
-        return view('dashboard.pesanan_pengiriman', compact('pengiriman', 'pesanan'));
+        return view('dashboard.pesanan_pengiriman', compact('pengiriman', 'pesanan_user'));
     }
 
     public function store(Request $request)

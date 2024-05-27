@@ -25,7 +25,7 @@
                             <th>Tanggal Pengiriman</th>
                             <th>Estimasi</th>
                             <th>Tanggal Tiba</th>
-                            <th>Aksi</th>
+                            {{-- <th>Aksi</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -47,15 +47,14 @@
                                     <td>
                                         {{ \Carbon\Carbon::parse($item->tanggal_tiba)->format('d F Y') }}
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <button class="btn icon btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#update{{ $item->id }}"><i
                                                 class="bi bi-pencil"></i></button>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
                         @endforeach
-
                     </tbody>
                 </table>
             </div>
@@ -75,43 +74,27 @@
                 </div>
                 @csrf
                 <div class="modal-body">
-
-                    <div class="form-group">
-                        <label for="first-name-vertical">Jasa Ekspedisi</label>
-                        <input type="text" id="first-name-vertical" required class="form-control" name="jasa_ekspedisi"
-                            required />
-                    </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Harga Ongkir</label>
-                        <input type="number" id="first-name-vertical" required class="form-control" name="harga_ongkir"
-                            required />
-                    </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Alamat Pengirim</label>
-                        <input type="test" id="first-name-vertical"
-                            value="Krajan Lor,RT 5 RW 1, Desa Gumelar, Balung, Jember, Jatim" required class="form-control"
-                            name="alamat" readonly required />
-                    </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Alamat Tujuan</label>
-                        <input type="test" id="first-name-vertical" required class="form-control" name="alamat_tujuan"
-                            required />
-                    </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Tanggal Pengiriman</label>
-                        <input type="date" id="first-name-vertical" required class="form-control"
-                            name="tanggal_pengiriman" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Estimasi Sampai</label>
-                        <input type="text" id="first-name-vertical" required class="form-control" name="estimasi"
-                            placeholder="0 hari" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Tanggal Tiba</label>
-                        <input type="date" id="first-name-vertical" required class="form-control" name="tanggal_tiba"
-                            required />
-                    </div>
+                    <fieldset class="form-group">
+                        <label for="basicSelect">Pilih Pesanan</label>
+                        <select name="pesanan_id" class="form-select" id="basicSelect">
+                            @foreach ($pesanan_user as $item)
+                                <option value="{{ $item->id }}">{{ $item->user->name }} - {{ $item->produk->nama }} x
+                                    {{ $item->qty }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="basicSelect">Pilih Pengiriman</label>
+                        <select name="pesanan_id" class="form-select" id="basicSelect">
+                            @foreach ($pengiriman as $item)
+                                <option value="{{ $item->id }}">{{ $item->jasa_ekspedisi }} -
+                                    {{ $item->harga_ongkir }} -
+                                    Alamat Tujuan : {{ $item->alamat_tujuan }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </fieldset>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" data-bs-dismiss="modal">
@@ -128,7 +111,7 @@
         </div>
     </div>
     {{-- modal edit --}}
-    @foreach ($pengiriman as $item)
+    {{-- @foreach ($pengiriman as $item)
         <div class="modal fade text-left" id="update{{ $item->id }}" tabindex="-1" role="dialog"
             aria-labelledby="myModalLabel1" data-bs-backdrop="false" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
@@ -193,7 +176,7 @@
                 </div>
             </div>
         </div>
-    @endforeach
+    @endforeach --}}
 @endsection
 @push('scripts')
     <script src="{{ asset('assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>
