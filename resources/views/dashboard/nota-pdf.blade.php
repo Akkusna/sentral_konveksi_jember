@@ -89,10 +89,22 @@
                 <td colspan="3" class="text-right">-----------------</td>
             </tr>
             <tr>
+                <td></td>
+                <td></td>
+                <td class="text-right">Rp. {{ number_format($pesanan->produk->harga * $pesanan->qty, 0, ',', '.') }}
+                </td>
+            </tr>
+            <tr>
                 <td colspan="3" class="text-left">Status Pembayaran</td>
             </tr>
             <tr>
-                <td colspan="2">{{ $pesanan->status_pembayaran }}</td>
+                <td colspan="2">
+                    @if ($pesanan->status_pembayaran == 'dp')
+                        Dp 50%
+                    @else
+                        Lunas
+                    @endif
+                </td>
                 <td class="text-right">
                     Total: Rp.
                     @if ($pesanan->status_pembayaran == 'dp')

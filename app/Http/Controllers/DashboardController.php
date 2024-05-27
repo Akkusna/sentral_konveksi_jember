@@ -57,20 +57,19 @@ class DashboardController extends Controller
     public function pengiriman_user()
     {
         $idUser = Auth::user()->id;
-        $pengiriman = Pengiriman::with('pesanan')
-            ->whereHas('pesanan', function ($query) use ($idUser) {
-                $query->where('user_id', $idUser);
-            })
+        $pesanan = Pesanan::where('user_id', $idUser)
+            ->where('pengiriman_id', '!=', null)
+            // ->where('status', 'dalam pengiriman')
             ->get();
-        return view('dashboard.user.pengiriman', compact('pengiriman'));
+        return view('dashboard.user.pengiriman', compact('pesanan'));
     }
 
     public function update_pengiriman_user($id)
     {
-        $pengiriman = Pengiriman::findOrFail($id);
+        $pengiriman = Pesanan::findOrFail($id);
 
         $pengiriman->update([
-            'status' => 'sampai'
+            'status' => 'selesai'
         ]);
 
         return redirect()->back()->with('message', 'Paket telah diterima');

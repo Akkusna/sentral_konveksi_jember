@@ -28,47 +28,40 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($pengiriman as $item)
+                        @foreach ($pesanan as $item)
+                            {{-- {{ dd($item->pengirimans) }} --}}
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
-                                    {{ $item->pesanan->produk->nama }} x {{ $item->pesanan->qty }}
+                                    {{ $item->produk->nama }} x {{ $item->qty }}
                                 </td>
                                 <td>
-                                    Rp. {{ number_format($item->pesanan->grand_total, 0, ',', '.') }}
+                                    Rp. {{ number_format($item->grand_total, 0, ',', '.') }}
                                 </td>
                                 <td>
-                                    {{ \Carbon\Carbon::parse($item->tanggal_pengiriman)->format('d F Y') }}
+                                    @if ($item->pengirimans)
+                                        {{ \Carbon\Carbon::parse($item->pengirimans->tanggal_pengiriman)->format('d F Y') }}
+                                    @else
+                                        -
+                                    @endif
                                 </td>
                                 <td>
                                     {{ $item->estimasi }}
                                 </td>
                                 <td>
-                                    {{ \Carbon\Carbon::parse($item->tanggal_tiba)->format('d F Y') }}
+                                    {{ \Carbon\Carbon::parse($item->pengirimans->tanggal_tiba)->format('d F Y') }}
                                 </td>
                                 <td>
-                                    @if ($item->status === 'sampai')
-                                        <div class="badge badge-pill bg-light-success">
-                                            Telah Diterima
-                                        </div>
-                                    @elseif ($item->status === 'proses')
-                                        <div class="badge badge-pill bg-light-warning">
-                                            Dalam Proses Pengiriman
-                                        </div>
-                                    @else
-                                        <div class="badge badge-pill bg-light-warning">
-                                            Dalam Perjalanan
-                                        </div>
-                                    @endif
+                                    {{ $item->status }}
                                 </td>
                                 <td>
-                                    {{ $item->pesanan->jasa_ekspedisi }}
+                                    {{ $item->pengirimans->jasa_ekspedisi }}
                                 </td>
                                 <td>
-                                    Rp. {{ number_format($item->pesanan->harga_ongkir, 0, ',', '.') }}
+                                    Rp. {{ number_format($item->pengirimans->harga_ongkir, 0, ',', '.') }}
                                 </td>
                                 <td>
-                                    @if ($item->status === 'sampai')
+                                    @if ($item->status === 'selesai')
                                         <button class="btn icon btn-secondary" disabled"><i class="bi bi-check-lg"></i>
                                             Selesai</button>
                                     @else
@@ -85,7 +78,7 @@
         </div>
     </section>
     {{-- modal terima --}}
-    @foreach ($pengiriman as $item)
+    @foreach ($pesanan as $item)
         <div class="modal fade text-left" id="acc{{ $item->id }}" tabindex="-1" role="dialog"
             aria-labelledby="myModalLabel1" data-bs-backdrop="false" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable" role="document">

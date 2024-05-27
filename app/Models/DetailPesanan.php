@@ -11,18 +11,12 @@ class DetailPesanan extends Model
     use HasFactory;
     protected $fillable = [
         'pesanan_id',
-        'bahan_baku_id',
         'ukuran_id',
         'color_id',
         'qty',
     ];
 
     protected $table = 'detail_pesanan';
-
-    public function bahanBaku()
-    {
-        return $this->belongsTo(BahanBaku::class);
-    }
 
     public function pesanan()
     {

@@ -95,6 +95,21 @@
                         </li>
                     </ul>
                 </li>
+                <li
+                    class="sidebar-item has-sub {{ Route::is('bahan.laporan') || Route::is('pesanan.laporan') ? 'active' : '' }}">
+                    <a href="/laporan-bahan" class="sidebar-link">
+                        <i class="bi bi-clipboard"></i>
+                        <span>Laporan</span>
+                    </a>
+                    <ul class="submenu">
+                        <li class="submenu-item">
+                            <a href="/laporan-bahan" class="submenu-link">Laporan Bahan Baku</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="/laporan-pesanan" class="submenu-link">Laporan Pesanan</a>
+                        </li>
+                    </ul>
+                </li>
                 {{-- <li class="sidebar-item {{ Route::is('pesanan') ? 'active' : '' }}">
                     <a href="/pesanan" class="sidebar-link">
                         <i class="bi bi-journal-check"></i>

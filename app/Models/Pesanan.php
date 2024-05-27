@@ -41,7 +41,7 @@ class Pesanan extends Model
         return $this->belongsTo(Produk::class, 'produk_id');
     }
 
-    public function pengiriman()
+    public function pengirimans()
     {
         return $this->belongsTo(Pengiriman::class, 'pengiriman_id');
     }

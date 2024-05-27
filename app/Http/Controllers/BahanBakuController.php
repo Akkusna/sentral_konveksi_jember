@@ -43,4 +43,10 @@ class BahanBakuController extends Controller
             return back()->withInput()->with('error', 'Gagal menambahkan data');
         }
     }
+
+    public function laporan_bahan()
+    {
+        $bahan = BahanBaku::with(['transaksiMasuk', 'transaksiKeluar'])->get();
+        return view('dashboard.laporan-bahan', compact('bahan'));
+    }
 }

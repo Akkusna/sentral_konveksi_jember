@@ -20,7 +20,7 @@ class PesananController extends Controller
      */
     public function index()
     {
-        $pesanan = Pesanan::with(['user', 'detailPesanan.color', 'detailPesanan.ukuran', 'detailPesanan.bahanBaku.transaksiKeluar', 'produk', 'detailPesananBahanBaku'])->orderByDesc('id')->get();
+        $pesanan = Pesanan::with(['user', 'detailPesanan.color', 'detailPesanan.ukuran', 'produk', 'detailPesananBahanBaku'])->orderByDesc('id')->get();
         $bahan = BahanBaku::all();
         return view('dashboard.pemesanan', compact('pesanan', 'bahan'));
     }
@@ -111,5 +111,11 @@ class PesananController extends Controller
         }
 
         return redirect()->back()->with('message', 'Pesanan Bahan Baku updated successfully!');
+    }
+
+    public function laporan_pesanan()
+    {
+        $pesanan = Pesanan::with(['user', 'detailPesanan.color', 'detailPesanan.ukuran', 'produk'])->orderByDesc('id')->get();
+        return view('dashboard.laporan-pesanan', compact('pesanan'));
     }
 }
