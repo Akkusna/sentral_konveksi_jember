@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\OrdersExport;
 use App\Models\Pesanan;
 use App\Models\BahanBaku;
 use App\Models\DetailPesanan;
@@ -12,6 +13,7 @@ use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Carbon\Carbon;
 use Endroid\QrCode\QrCode as QrCodeQrCode;
 use Endroid\QrCode\Writer\PngWriter;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PesananController extends Controller
 {
@@ -34,6 +36,13 @@ class PesananController extends Controller
 
         $pesanan = Pesanan::findOrFail($id);
 
+        if ($pesanan->status === 'selesai') {
+            return back()->withErrors('Pesanan telah selesai tidak dapat melakukan perubahan');
+        }
+
+        if ($pesanan->status === 'lunas') {
+            return back()->withErrors('Pesanan telah dibayar lunas tidak dapat melakukan perubahan');
+        }
         $pesanan->update([
             'status' => $request->status,
             'status_pembayaran' => $request->status_pembayaran,
@@ -117,5 +126,12 @@ class PesananController extends Controller
     {
         $pesanan = Pesanan::with(['user', 'detailPesanan.color', 'detailPesanan.ukuran', 'produk'])->orderByDesc('id')->get();
         return view('dashboard.laporan-pesanan', compact('pesanan'));
+    }
+
+    public function exportExcel(Request $request)
+    {
+        $startDate = $request->query('start_date');
+        $endDate = $request->query('end_date');
+        return Excel::download(new OrdersExport($startDate, $endDate), 'pesanan.xlsx');
     }
 }

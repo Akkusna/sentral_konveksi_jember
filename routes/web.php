@@ -89,12 +89,15 @@ Route::delete('/produk/{id}/delet', [ProdukController::class, 'delete'])->name('
 Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan')->middleware('isAuth');
 Route::put('/pesanan/{id}/update', [PesananController::class, 'update'])->name('pesanan-update')->middleware('isAuth');
 Route::get('/pesanan/{id}/nota', [PesananController::class, 'cetakNota'])->name('pesanan-nota')->middleware('isAuth');
-Route::post('/pesanan-bahan-baku', [PesananController::class, 'storeOrUpdateBahanBaku'])->name('pesanan.bahan-baku.store-or-update');
+Route::post('/pesanan-bahan-baku', [PesananController::class, 'storeOrUpdateBahanBaku'])->name('pesanan.bahan-baku.store-or-update')->middleware('isAuth');
 Route::get('/laporan-pesanan', [PesananController::class, 'laporan_pesanan'])->name('pesanan.laporan')->middleware('isAuth');
+Route::get('/export-excel', [PesananController::class, 'exportExcel'])->name('export.excel')->middleware('isAuth');
+
 
 Route::get('/bahan', [BahanBakuController::class, 'index'])->name('bahan')->middleware('isAuth');
 Route::post('/bahan/store', [BahanBakuController::class, 'store'])->name('bahan-store')->middleware('isAuth');
 Route::get('/laporan-bahan', [BahanBakuController::class, 'laporan_bahan'])->name('bahan.laporan')->middleware('isAuth');
+Route::get('/export-bahan-excel', [BahanBakuController::class, 'exportBahanExcel'])->name('export.bahan.excel')->middleware('isAuth');
 
 
 Route::get('/pengiriman', [PengirimanController::class, 'index'])->name('pengiriman')->middleware('isAuth');

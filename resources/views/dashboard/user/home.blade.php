@@ -1,6 +1,6 @@
 @extends('dashboard.user.dashboard')
 @section('title-user')
-    Dashboard
+    Dashboard Pelanggan
 @endsection
 @section('user')
     <section class="row">

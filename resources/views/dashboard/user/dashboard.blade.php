@@ -26,8 +26,17 @@
             <header class="mb-5">
                 <div class="header-top">
                     <div class="container">
-                        <div class="logo">
-                            <h3>Setral</h3>
+                        <div>
+                            <div class="row">
+                                {{-- <div class="col"> --}}
+                                <h3>Sentral</h3>
+                                {{-- </div> --}}
+                            </div>
+                            <div class="row mt-0">
+                                {{-- <div class="col"> --}}
+                                <small style="font-size: 11pt">Konveksi Jember</small>
+                                {{-- </div> --}}
+                            </div>
                         </div>
                         <div class="header-top-right">
                             <div class="dropdown">

@@ -25,7 +25,7 @@
                         <button class="btn btn-primary" id="filterButton">Filter</button>
                     </div>
                     <div class="col-md-1 d-flex align-items-end ms-auto">
-                        <button class="btn btn-success">Export</button>
+                        <button class="btn btn-success" id="exportButton">Export</button>
                     </div>
                 </div>
                 <table class="table table-striped" id="table1">
@@ -102,6 +102,16 @@
                     rows[i].style.display = '';
                 }
             }
+        });
+
+        document.getElementById('exportButton').addEventListener('click', function() {
+            let startDate = document.getElementById('start_date').value;
+            let endDate = document.getElementById('end_date').value;
+            let url = '{{ route('export.bahan.excel') }}';
+            if (startDate || endDate) {
+                url += '?start_date=' + startDate + '&end_date=' + endDate;
+            }
+            window.location.href = url;
         });
     </script>
 @endpush

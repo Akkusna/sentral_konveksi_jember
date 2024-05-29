@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    Dashboard
+    Dashboard Admin
 @endsection
 @section('container')
     <section class="row">

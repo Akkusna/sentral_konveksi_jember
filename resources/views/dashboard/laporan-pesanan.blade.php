@@ -25,10 +25,10 @@
                         <button class="btn btn-primary" id="filterButton">Filter</button>
                     </div>
                     <div class="col-md-1 d-flex align-items-end ms-auto">
-                        <button class="btn btn-success">Export</button>
+                        <button class="btn btn-success" id="exportButton">Export</button>
                     </div>
                 </div>
-                <table class="table table-striped" id="table2">
+                <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -52,11 +52,8 @@
                                         </div>
                                     @endforeach
                                 </td>
-                                <td>Rp. {{ number_format($item->produk->harga * $item->qty, 0, ',', '.') }}
-                                </td>
-                                <td>
-                                    {{ \Carbon\Carbon::parse($item->created_at)->format('d F Y') }}
-                                </td>
+                                <td>Rp. {{ number_format($item->produk->harga * $item->qty, 0, ',', '.') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($item->created_at)->format('d F Y') }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -72,16 +69,17 @@
         document.getElementById('filterButton').addEventListener('click', function() {
             let startDate = document.getElementById('start_date').value;
             let endDate = document.getElementById('end_date').value;
-            let table = document.getElementById('table2');
+            let table = document.getElementById('table1');
             let rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 
             for (let i = 0; i < rows.length; i++) {
-                let cell = rows[i].getElementsByTagName('td')[6];
+                let cell = rows[i].getElementsByTagName('td')[5];
                 let dateText = cell.textContent || cell.innerText;
                 let rowDate = new Date(dateText);
                 let start = new Date(startDate);
                 let end = new Date(endDate);
 
+                // Compare the dates correctly
                 if (startDate && endDate) {
                     if (rowDate >= start && rowDate <= end) {
                         rows[i].style.display = '';
@@ -104,6 +102,16 @@
                     rows[i].style.display = '';
                 }
             }
+        });
+
+        document.getElementById('exportButton').addEventListener('click', function() {
+            let startDate = document.getElementById('start_date').value;
+            let endDate = document.getElementById('end_date').value;
+            let url = '{{ route('export.excel') }}';
+            if (startDate || endDate) {
+                url += '?start_date=' + startDate + '&end_date=' + endDate;
+            }
+            window.location.href = url;
         });
     </script>
 @endpush

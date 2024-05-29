@@ -32,7 +32,6 @@
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Qty</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,15 +40,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->nama }}</td>
                                         <td>
-                                            {{ $item->qty }}
-                                        </td>
-                                        <td>
-                                            <button class="btn icon btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#update{{ $item->id }}"><i
-                                                    class="bi bi-pencil"></i></button>
-                                            <button class="btn icon btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#delete{{ $item->id }}"><i
-                                                    class="bi bi-trash"></i></button>
+                                            {{ $item->qty }} meter
                                         </td>
                                     </tr>
                                 @endforeach
@@ -66,7 +57,6 @@
                                     <th>Qty</th>
                                     <th>Total Harga</th>
                                     <th>Tanggal</th>
-                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -78,7 +68,7 @@
                                             Rp. {{ number_format($item->bahanBaku->harga, 0, ',', '.') }}
                                         </td>
                                         <td>
-                                            {{ $item->qty }}
+                                            {{ $item->qty }} meter
                                         </td>
                                         <td>
                                             Rp. {{ number_format($item->bahanBaku->total_harga, 0, ',', '.') }}
@@ -86,14 +76,7 @@
                                         <td>
                                             {{ \Carbon\Carbon::parse($item->created_at)->format('d F Y') }}
                                         </td>
-                                        <td>
-                                            <button class="btn icon btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#update{{ $item->id }}"><i
-                                                    class="bi bi-pencil"></i></button>
-                                            <button class="btn icon btn-danger" data-bs-toggle="modal"
-                                                data-bs-target="#delete{{ $item->id }}"><i
-                                                    class="bi bi-trash"></i></button>
-                                        </td>
+
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -119,7 +102,7 @@
                                             {{ $item->pesanan->produk->nama }} x {{ $item->pesanan->qty }}
                                         </td>
                                         <td>
-                                            {{ $item->qty }}
+                                            {{ $item->qty }} meter
                                         </td>
                                         <td>
                                             {{ \Carbon\Carbon::parse($item->created_at)->format('d F Y') }}
@@ -155,13 +138,11 @@
                         </div>
                         <div class="form-group">
                             <label for="first-name-vertical">Harga</label>
-                            <input type="number" id="first-name-vertical" required class="form-control"
-                                name="harga" />
+                            <input type="number" id="first-name-vertical" required class="form-control" name="harga" />
                         </div>
                         <div class="form-group">
                             <label for="first-name-vertical">Qty /m</label>
-                            <input type="number" id="first-name-vertical" required class="form-control"
-                                name="qty" />
+                            <input type="number" id="first-name-vertical" required class="form-control" name="qty" />
                         </div>
                     </div>
                     <div class="modal-footer">

@@ -24,14 +24,18 @@
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <!-- Logo -->
-                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-4">
-                                <div class="logo">
-                                    {{-- <a href="index.html"><img src="assets/img/logo/sentral.png" alt=""></a> --}}
-                                    <h1>Sentral</h1>
-
+                            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
+                                <div class="d-flex align-items-center">
+                                    <a href="index.html">
+                                        <img src="{{ asset('assets/img/logo_fix.png') }}" height="80px" alt="">
+                                    </a>
+                                    <div class="ms-2 d-flex flex-column">
+                                        <h2 class="mb-0" style="margin-bottom: 0;">Sentral</h2>
+                                        <small class="mb-0" style="margin-top: -5px;">Konveksi Jember</small>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
+                            <div class="col-xl-5 col-lg-7 col-md-6 col-sm-4">
                                 <!-- Main-menu -->
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>

@@ -63,6 +63,9 @@
                                                 <li>Rp. {{ number_format($item->harga, 0, ',', '.') }}</li>
                                             </ul>
                                         </div>
+                                        <form action="{{ route('checkout', ['id' => $item->id]) }}" method="GET">
+                                            <button type="submit" class="btn header-btn mt-3">Pesan Sekarang</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -151,6 +154,9 @@
                                 '<li>Rp. ' + formatRupiah(produk.harga) + '</li>' +
                                 '</ul>' +
                                 '</div>' +
+                                '<form action="{{ route('checkout', ['id' => $item->id]) }}" method="GET">' +
+                                '<button type="submit" class="btn header-btn mt-3">Pesan Sekarang</button>' +
+                                '</form>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>'
@@ -159,6 +165,7 @@
                     }
                 });
             });
+
 
             // Function to format Rupiah
             function formatRupiah(angka) {

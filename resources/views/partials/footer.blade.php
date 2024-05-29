@@ -8,10 +8,14 @@
                     <div class="single-footer-caption mb-50">
                         <div class="single-footer-caption mb-30">
                             <!-- logo -->
-                            <div class="footer-logo">
-                                <h1>Sentral</h1>
-                                <p>Konveksi Jember</p>
+                            <div class="footer-logo d-flex align-items-center">
+                                <img src="{{ asset('assets/img/logo_fix.png') }}" height="80px" alt="">
+                                <div class="ms-2 d-flex flex-column">
+                                    <h1 class="mb-0" style="margin-bottom: 0;">Sentral</h1>
+                                    <p class="mb-0" style="margin-top: -5px;">Konveksi Jember</p>
+                                </div>
                             </div>
+
                             <div class="footer-tittle">
                                 <div class="footer-pera">
                                     <p>Konveksi Kemeja, Kaos, Jaket, Topi, Tas dll Terbaik dan Ekonomis</p>
@@ -38,10 +42,8 @@
                     <div class="footer-copy-right f-right">
                         <!-- social -->
                         <div class="footer-social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                            <a href="#"><i class="fas fa-globe"></i></a>
+                            <a href="https://wa.me/62883853494485"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://www.instagram.com/konveksijember.id/"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>

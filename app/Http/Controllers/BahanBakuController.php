@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\BahanBakuExport;
 use App\Models\BahanBaku;
 use App\Models\TransaksiKeluar;
 use App\Models\TransaksiMasuk;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BahanBakuController extends Controller
 {
@@ -48,5 +50,12 @@ class BahanBakuController extends Controller
     {
         $bahan = BahanBaku::with(['transaksiMasuk', 'transaksiKeluar'])->get();
         return view('dashboard.laporan-bahan', compact('bahan'));
+    }
+
+    public function exportBahanExcel(Request $request)
+    {
+        $startDate = $request->query('start_date');
+        $endDate = $request->query('end_date');
+        return Excel::download(new BahanBakuExport($startDate, $endDate), 'bahan_baku.xlsx');
     }
 }

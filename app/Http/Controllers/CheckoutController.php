@@ -13,6 +13,7 @@ use App\Models\Produk;
 use App\Models\ProdukColor;
 use App\Models\ProdukUkuran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
@@ -22,7 +23,10 @@ class CheckoutController extends Controller
         $produk = Produk::with('kategori')->findOrFail($id);
         $warna = ProdukColor::where('produk_id', $id)->with('color')->get();
         $ukuran = ProdukUkuran::where('produk_id', $id)->with('ukuran')->get();
-        $pengiriman = Pengiriman::all();
+        $userId = Auth::id();
+        $pengiriman = Pengiriman::whereHas('pesanan', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
         return view('landing.checkout', compact('produk', 'bank', 'warna', 'ukuran', 'pengiriman'));
     }
 

@@ -17,9 +17,9 @@
                                 <h6 class="mb-0">{{ Auth::user()->name }}</h6>
                                 <span class="text-xs">User</span>
                             </div>
-                            <button class="btn icon btn-primary">
+                            {{-- <button class="btn icon btn-primary">
                                 <i class="bi bi-pencil-square"></i>
-                            </button>
+                            </button> --}}
                         </div>
                     </div>
                 </div>
