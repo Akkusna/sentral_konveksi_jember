@@ -340,8 +340,8 @@
                                         {{ $item->status == 'dalam_pengiriman' ? 'selected' : '' }}>
                                         Dalam Pengiriman
                                     </option>
-                                    {{-- <option value="selesai" {{ $item->status == 'selesai' ? 'selected' : '' }}>Selesai
-                                    </option> --}}
+                                    <option value="selesai" {{ $item->status == 'selesai' ? 'selected' : '' }}>Selesai
+                                    </option>
                                 </select>
                             </fieldset>
                         </div>

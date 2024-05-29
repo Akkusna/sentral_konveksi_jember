@@ -99,6 +99,7 @@ Route::get('/laporan-bahan', [BahanBakuController::class, 'laporan_bahan'])->nam
 
 Route::get('/pengiriman', [PengirimanController::class, 'index'])->name('pengiriman')->middleware('isAuth');
 Route::get('/pengiriman-pesanan', [PengirimanController::class, 'indexPengirimanPesanan'])->name('pengiriman.pesanan')->middleware('isAuth');
+Route::put('/pengiriman-pesanan-store', [PengirimanController::class, 'updatePesanan'])->name('pengiriman.pesanan.store')->middleware('isAuth');
 Route::post('/pengiriman-store', [PengirimanController::class, 'store'])->name('pengiriman.store')->middleware('isAuth');
 Route::put('/pengiriman-update/{id}', [PengirimanController::class, 'update'])->name('pengiriman.update')->middleware('isAuth');
 

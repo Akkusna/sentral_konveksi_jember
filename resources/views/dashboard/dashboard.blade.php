@@ -86,8 +86,10 @@
                                 <table class="table table-hover table-lg">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Nama Pelanggan</th>
                                             <th>Tanggal Pesan</th>
+                                            <th>Jam Pesan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -95,18 +97,30 @@
                                             <tr>
                                                 <td class="col-3">
                                                     <div class="d-flex align-items-center">
+                                                        <p class="font-bold ms-3 mb-0">{{ $loop->iteration }}</p>
+                                                    </div>
+                                                </td>
+                                                <td class="col-3">
+                                                    <div class="d-flex align-items-center">
                                                         <p class="font-bold ms-3 mb-0">{{ $item->user->name }}</p>
                                                     </div>
                                                 </td>
                                                 <td class="col-auto">
-                                                    <p class=" mb-0">
-                                                        {{ \Carbon\Carbon::parse($item->created_at)->format('d F Y') }}
+                                                    <p class="mb-0">
+                                                        {{ \Carbon\Carbon::parse($item->created_at)->setTimezone('Asia/Jakarta')->format('d F Y') }}
+                                                    </p>
+                                                </td>
+                                                <td class="col-auto">
+                                                    <p class="mb-0">
+                                                        {{ \Carbon\Carbon::parse($item->created_at)->setTimezone('Asia/Jakarta')->format('H:i:s') }}
+                                                        WIB
                                                     </p>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>

@@ -72,40 +72,43 @@
                         <i data-feather="x"></i>
                     </button>
                 </div>
-                @csrf
-                <div class="modal-body">
-                    <fieldset class="form-group">
-                        <label for="basicSelect">Pilih Pesanan</label>
-                        <select name="pesanan_id" class="form-select" id="basicSelect">
-                            @foreach ($pesanan_user as $item)
-                                <option value="{{ $item->id }}">{{ $item->user->name }} - {{ $item->produk->nama }} x
-                                    {{ $item->qty }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </fieldset>
-                    <fieldset class="form-group">
-                        <label for="basicSelect">Pilih Pengiriman</label>
-                        <select name="pesanan_id" class="form-select" id="basicSelect">
-                            @foreach ($pengiriman as $item)
-                                <option value="{{ $item->id }}">{{ $item->jasa_ekspedisi }} -
-                                    {{ $item->harga_ongkir }} -
-                                    Alamat Tujuan : {{ $item->alamat_tujuan }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </fieldset>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">
-                        <i class="bx bx-x d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Tutup</span>
-                    </button>
-                    <button type="submit" class="btn btn-primary ms-1">
-                        <i class="bx bx-check d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Simpan</span>
-                    </button>
-                </div>
+                <form action="{{ route('pengiriman.pesanan.store') }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <fieldset class="form-group">
+                            <label for="basicSelect">Pilih Pesanan</label>
+                            <select name="pesanan_id" class="form-select" id="basicSelect">
+                                @foreach ($pesanan_user as $item)
+                                    <option value="{{ $item->id }}">{{ $item->user->name }} -
+                                        {{ $item->produk->nama }} x
+                                        {{ $item->qty }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <label for="basicSelect">Pilih Pengiriman</label>
+                            <select name="pengiriman_id" class="form-select" id="basicSelect">
+                                @foreach ($pengiriman as $item)
+                                    <option value="{{ $item->id }}">{{ $item->jasa_ekspedisi }} -
+                                        {{ $item->harga_ongkir }} -
+                                        Alamat Tujuan : {{ $item->alamat_tujuan }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </fieldset>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary ms-1">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Simpan</span>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

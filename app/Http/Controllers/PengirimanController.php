@@ -48,30 +48,35 @@ class PengirimanController extends Controller
         $pengiriman = Pengiriman::findOrFail($id);
 
         $validateData = $request->validate([
-            'status' => 'required',
-            'tanggal_pengiriman' => 'required|date',
+            'tanggal_pengiriman' => 'required',
             'estimasi' => 'required',
-            'tanggal_tiba' => 'required|date',
-            'jasa_ekspedisi' => 'required|string',
-            'harga_ongkir' => 'required|numeric',
+            'tanggal_tiba' => 'required',
+            'alamat' => 'required',
+            'alamat_tujuan' => 'required',
+            'jasa_ekspedisi' => 'required',
+            'harga_ongkir' => 'required',
         ]);
 
-        $pengiriman->update([
-            'status' => $validateData['status'],
-            'tanggal_pengiriman' => $validateData['tanggal_pengiriman'],
-            'estimasi' => $validateData['estimasi'],
-            'tanggal_tiba' => $validateData['tanggal_tiba'],
-        ]);
-
-        $pesanan = $pengiriman->pesanan;
-        if ($pesanan) {
-            $pesanan->update([
-                'jasa_ekspedisi' => $validateData['jasa_ekspedisi'],
-                'harga_ongkir' => $validateData['harga_ongkir'],
-            ]);
-        }
+        $pengiriman->update($validateData);
 
 
         return redirect()->route('pengiriman')->with('message', 'Data berhasil diupdate');
+    }
+
+    public function updatePesanan(Request $request)
+    {
+        $request->validate([
+            'pengiriman_id' => 'required',
+            'pesanan_id' => 'required'
+        ]);
+
+        $pesanan = Pesanan::findOrFail($request->pesanan_id);
+
+        $pesanan->update([
+            'status' => "dalam pengiriman",
+            'pengiriman_id' => $request->pengiriman_id,
+        ]);
+
+        return redirect()->route('pengiriman.pesanan')->with('message', 'Barang berhasil dikirim');
     }
 }

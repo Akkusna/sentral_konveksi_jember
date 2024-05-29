@@ -66,4 +66,42 @@
 @push('scripts')
     <script src="{{ asset('assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/simple-datatables.js') }}"></script>
+    <script>
+        document.getElementById('filterButton').addEventListener('click', function() {
+            let startDate = document.getElementById('start_date').value;
+            let endDate = document.getElementById('end_date').value;
+            let table = document.getElementById('table1');
+            let rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+            for (let i = 0; i < rows.length; i++) {
+                let cell = rows[i].getElementsByTagName('td')[7];
+                let dateText = cell.textContent || cell.innerText;
+                let rowDate = new Date(dateText);
+                let start = new Date(startDate);
+                let end = new Date(endDate);
+
+                if (startDate && endDate) {
+                    if (rowDate >= start && rowDate <= end) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                } else if (startDate) {
+                    if (rowDate >= start) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                } else if (endDate) {
+                    if (rowDate <= end) {
+                        rows[i].style.display = '';
+                    } else {
+                        rows[i].style.display = 'none';
+                    }
+                } else {
+                    rows[i].style.display = '';
+                }
+            }
+        });
+    </script>
 @endpush

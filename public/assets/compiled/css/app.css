@@ -18903,7 +18903,7 @@ body .bi:before,
     display: inline-block;
 }
 .layout-horizontal .header-top .logo img {
-    height: 20px;
+    height: 100px;
 }
 .layout-horizontal .header-top-right {
     display: flex;

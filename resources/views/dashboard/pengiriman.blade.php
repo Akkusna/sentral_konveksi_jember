@@ -67,56 +67,56 @@
                         <i data-feather="x"></i>
                     </button>
                 </div>
-                @csrf
-                <div class="modal-body">
-
-                    <div class="form-group">
-                        <label for="first-name-vertical">Jasa Ekspedisi</label>
-                        <input type="text" id="first-name-vertical" required class="form-control" name="jasa_ekspedisi"
-                            required />
+                <form action="{{ route('pengiriman.store') }}" method="POST">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="first-name-vertical">Jasa Ekspedisi</label>
+                            <input type="text" id="first-name-vertical" required class="form-control"
+                                name="jasa_ekspedisi" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name-vertical">Harga Ongkir</label>
+                            <input type="number" id="first-name-vertical" required class="form-control" name="harga_ongkir"
+                                required />
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name-vertical">Alamat Pengirim</label>
+                            <input type="test" id="first-name-vertical"
+                                value="Krajan Lor,RT 5 RW 1, Desa Gumelar, Balung, Jember, Jatim" required
+                                class="form-control" name="alamat" readonly required />
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name-vertical">Alamat Tujuan</label>
+                            <input type="test" id="first-name-vertical" required class="form-control"
+                                name="alamat_tujuan" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name-vertical">Tanggal Pengiriman</label>
+                            <input type="date" id="first-name-vertical" required class="form-control"
+                                name="tanggal_pengiriman" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name-vertical">Estimasi Sampai</label>
+                            <input type="text" id="first-name-vertical" required class="form-control" name="estimasi"
+                                placeholder="0 hari" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="first-name-vertical">Tanggal Tiba</label>
+                            <input type="date" id="first-name-vertical" required class="form-control" name="tanggal_tiba"
+                                required />
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Harga Ongkir</label>
-                        <input type="number" id="first-name-vertical" required class="form-control" name="harga_ongkir"
-                            required />
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary ms-1">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Simpan</span>
+                        </button>
                     </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Alamat Pengirim</label>
-                        <input type="test" id="first-name-vertical"
-                            value="Krajan Lor,RT 5 RW 1, Desa Gumelar, Balung, Jember, Jatim" required class="form-control"
-                            name="alamat" readonly required />
-                    </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Alamat Tujuan</label>
-                        <input type="test" id="first-name-vertical" required class="form-control" name="alamat_tujuan"
-                            required />
-                    </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Tanggal Pengiriman</label>
-                        <input type="date" id="first-name-vertical" required class="form-control"
-                            name="tanggal_pengiriman" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Estimasi Sampai</label>
-                        <input type="text" id="first-name-vertical" required class="form-control" name="estimasi"
-                            placeholder="0 hari" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="first-name-vertical">Tanggal Tiba</label>
-                        <input type="date" id="first-name-vertical" required class="form-control" name="tanggal_tiba"
-                            required />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn" data-bs-dismiss="modal">
-                        <i class="bx bx-x d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Tutup</span>
-                    </button>
-                    <button type="submit" class="btn btn-primary ms-1">
-                        <i class="bx bx-check d-block d-sm-none"></i>
-                        <span class="d-none d-sm-block">Simpan</span>
-                    </button>
-                </div>
                 </form>
             </div>
         </div>
@@ -132,57 +132,61 @@
                         <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
                             <i data-feather="x"></i>
                         </button>
+
                     </div>
-                    @csrf
-                    @method('PUT')
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="first-name-vertical">Jasa Ekspedisi</label>
-                            <input type="text" required class="form-control" name="jasa_ekspedisi" required
-                                value="{{ $item->jasa_ekspedisi }}" />
+                    <form action="{{ route('pengiriman.update', $item->id) }}" method="POST">
+
+                        @csrf
+
+                        @method('PUT')
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="first-name-vertical">Jasa Ekspedisi</label>
+                                <input type="text" required class="form-control" name="jasa_ekspedisi" required
+                                    value="{{ $item->jasa_ekspedisi }}" />
+                            </div>
+                            <div class="form-group">
+                                <label for="first-name-vertical">Total Ongkir</label>
+                                <input type="number" required class="form-control" name="harga_ongkir"
+                                    value="{{ $item->harga_ongkir }}" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="first-name-vertical">Alamat Pengirim</label>
+                                <input type="test" id="first-name-vertical"
+                                    value="Krajan Lor,RT 5 RW 1, Desa Gumelar, Balung, Jember, Jatim" required
+                                    class="form-control" name="alamat" value="{{ $item->alamat }}" readonly required />
+                            </div>
+                            <div class="form-group">
+                                <label for="first-name-vertical">Alamat Tujuan</label>
+                                <input type="test" id="first-name-vertical" required class="form-control"
+                                    name="alamat_tujuan" value="{{ $item->alamat_tujuan }}" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="first-name-vertical">Tanggal Pengiriman</label>
+                                <input type="date" id="first-name-vertical" required class="form-control"
+                                    name="tanggal_pengiriman" value="{{ $item->tanggal_pengiriman }}" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="first-name-vertical">Estimasi Sampai</label>
+                                <input type="text" id="first-name-vertical" required class="form-control"
+                                    name="estimasi" placeholder="0 hari" value="{{ $item->estimasi }}" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="first-name-vertical">Tanggal Tiba</label>
+                                <input type="date" id="first-name-vertical" required class="form-control"
+                                    name="tanggal_tiba" value="{{ $item->tanggal_tiba }}" required />
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="first-name-vertical">Total Ongkir</label>
-                            <input type="number" required class="form-control" name="harga_ongkir"
-                                value="{{ $item->harga_ongkir }}" required />
+                        <div class="modal-footer">
+                            <button type="button" class="btn" data-bs-dismiss="modal">
+                                <i class="bx bx-x d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Tutup</span>
+                            </button>
+                            <button type="submit" class="btn btn-primary ms-1">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Simpan</span>
+                            </button>
                         </div>
-                        <div class="form-group">
-                            <label for="first-name-vertical">Alamat Pengirim</label>
-                            <input type="test" id="first-name-vertical"
-                                value="Krajan Lor,RT 5 RW 1, Desa Gumelar, Balung, Jember, Jatim" required
-                                class="form-control" name="alamat" value="{{ $item->alamat }}" readonly required />
-                        </div>
-                        <div class="form-group">
-                            <label for="first-name-vertical">Alamat Tujuan</label>
-                            <input type="test" id="first-name-vertical" required class="form-control"
-                                name="alamat_tujuan" value="{{ $item->alamat_tujuan }}" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="first-name-vertical">Tanggal Pengiriman</label>
-                            <input type="date" id="first-name-vertical" required class="form-control"
-                                name="tanggal_pengiriman" value="{{ $item->tanggal_pengiriman }}" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="first-name-vertical">Estimasi Sampai</label>
-                            <input type="text" id="first-name-vertical" required class="form-control" name="estimasi"
-                                placeholder="0 hari" value="{{ $item->estimasi }}" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="first-name-vertical">Tanggal Tiba</label>
-                            <input type="date" id="first-name-vertical" required class="form-control"
-                                name="tanggal_tiba" value="{{ $item->tanggal_tiba }}" required />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn" data-bs-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Tutup</span>
-                        </button>
-                        <button type="submit" class="btn btn-primary ms-1">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Simpan</span>
-                        </button>
-                    </div>
                     </form>
                 </div>
             </div>

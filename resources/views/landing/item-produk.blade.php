@@ -27,8 +27,8 @@
                 <h3 class="mb-30">Detail Produk</h3>
                 <div class="row">
                     <div class="col-md-3">
-                        <img src="{{ asset('foto/product/' . $produk->image) }}" height="300dp" alt=""
-                            class="img-fluid">
+                        <img src="{{ asset('foto/product/' . $produk->image) }}" height="300px" width="250px"
+                            alt="" class="img-fluid">
                     </div>
                     <div class="col-md-9 mt-sm-20">
                         <h3>{{ $produk->nama }}<br>
