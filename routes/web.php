@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LupaPasswordController;
 use App\Http\Controllers\NotaController;
 use App\Http\Controllers\PengirimanController;
 use App\Http\Controllers\PesananController;
@@ -31,11 +32,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingController::class, 'index'])->name('home');
 Route::get('/shop', [LandingController::class, 'shop'])->name('shop');
 Route::get('/shop-serch', [LandingController::class, 'searchProduk'])->name('search.produk');
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('login.store');
+
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
+
+Route::get('/forgot-password', [LupaPasswordController::class, 'index'])->name('forgot-password');
+Route::post('/forgot-password-act', [LupaPasswordController::class, 'sendEmail'])->name('forgot-password-act');
+
+Route::get('/validasi-password/{token}', [LupaPasswordController::class, 'validasi_forgot_password'])->name('validasi-password');
+Route::post('/validasi-password-act', [LupaPasswordController::class, 'validasi_forgot_password_act'])->name('validasi-password-act');
 
 Route::get('/category/{id}', [KategoriController::class, 'produkByKategori'])->name('kategori.id');
 Route::get('/produk/{id}', [ProdukController::class, 'getProductById'])->name('produk.id');
