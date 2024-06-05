@@ -68,7 +68,7 @@
     {{-- modal add --}}
     <div class="modal fade text-left" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         data-bs-backdrop="false" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg" style="display: block;" aria-modal="true" role="dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="myModalLabel1">Tambah Produk</h5>
