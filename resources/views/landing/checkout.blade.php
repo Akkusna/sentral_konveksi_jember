@@ -224,7 +224,6 @@
                                     <div class="icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                                     <div class="form-select" id="default-select">
                                         <select required name="pengiriman" id="pengiriman_select">
-                                            <option selected>Pilih Pengiriman</option>
                                             <option value="pengiriman">Pengiriman
                                             </option>
                                             <option value="ambil sendiri">Ambil Sendiri
@@ -275,7 +274,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">{{ $produk->nama }}
+                                        <a href="#" class="d-flex flex-column">{{ $produk->nama }}
                                             <span class="last">Rp.
                                                 {{ number_format($produk->harga, 0, ',', '.') }}</span>
                                         </a>

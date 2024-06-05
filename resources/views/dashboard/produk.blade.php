@@ -66,19 +66,21 @@
     </section>
 
     {{-- modal add --}}
-    <div class="modal fade text-left" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    <div class="modal fade text-left" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollable"
         data-bs-backdrop="false" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg" style="display: block;" aria-modal="true" role="dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel1">Tambah Produk</h5>
-                    <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
-                        <i data-feather="x"></i>
-                    </button>
-                </div>
-                <form action="{{ route('produk.store') }}" enctype="multipart/form-data" method="POST">
-                    @csrf
-                    <div class="modal-body">
+            <form action="{{ route('produk.store') }}" enctype="multipart/form-data" method="POST">
+                @csrf
+                @method('POST')
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="myModalLabel1">Tambah Produk</h5>
+                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+
+                    <div class="modal-body" style="overflow-y: auto;">
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" id="nama" required class="form-control" name="nama"
@@ -146,8 +148,9 @@
                             <span class="d-none d-sm-block">Simpan</span>
                         </button>
                     </div>
-                </form>
-            </div>
+                    {{-- </form> --}}
+                </div>
+            </form>
         </div>
     </div>
 
