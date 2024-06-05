@@ -26,7 +26,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                                 <div class="d-flex align-items-center">
-                                    <a href="index.html">
+                                    <a href="#">
                                         <img src="{{ asset('assets/img/logo_fix.png') }}" height="80px" alt="">
                                     </a>
                                     <div class="ms-2 d-flex flex-column">
@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-5 col-lg-7 col-md-6 col-sm-4">
+                            <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12">
                                 <!-- Main-menu -->
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>
@@ -43,12 +43,23 @@
                                             <li><a href="/">Home</a></li>
                                             <li><a class="hot" href="/category-landing">Kategori</a></li>
                                             <li><a href="/contact">Informasi Kontak</a></li>
+                                            @if (auth()->check() && auth()->user()->is_admin == 0)
+                                                <li> <a href="{{ route('dashboard-user') }}"
+                                                        class="btn header-btn text-white text-center"
+                                                        style="display: flex">Pesanan Saya</a>
+                                                </li>
+                                            @else
+                                                <li> <a href="{{ route('login') }}"
+                                                        class="btn header-btn text-white text-center"
+                                                        style="display: flex;">Login</a>
+                                                </li>
+                                            @endif
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                             <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
-                                <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
+                                {{-- <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
                                     @if (auth()->check() && auth()->user()->is_admin == 0)
                                         <li class="d-none d-lg-block"> <a href="{{ route('dashboard-user') }}"
                                                 class="btn header-btn">Pesanan Saya</a>
@@ -58,7 +69,7 @@
                                                 class="btn header-btn">Login</a>
                                         </li>
                                     @endif
-                                </ul>
+                                </ul> --}}
                             </div>
                             <!-- Mobile Menu -->
                             <div class="col-12">
