@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Gaya teks pada navbar */
+        #navigation li a {
+            color: black; /* Warna teks default */
+            text-decoration: none; /* Hilangkan garis bawah */
+            transition: color 0.3s; /* Efek transisi saat mengubah warna */
+        }
+
+        /* Gaya teks pada navbar saat kursor diarahkan */
+        #navigation li a:hover {
+            color: rgb(9, 9, 251); /* Ubah warna teks menjadi biru dongker saat kursor diarahkan */
+        }
+    </style>
+</head>
+<body>
     <header>
         <!-- Header Start -->
         <div class="header-area">
@@ -82,3 +102,5 @@
         </div>
         <!-- Header End -->
     </header>
+    </body>
+</html>
