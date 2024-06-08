@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>Kategori</h2>
+                            <h2>Katalog Produk</h2>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@
                                 </p>
                                 <!-- Hero-btn -->
                                 <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                                    <a href="/category-landing" class="btn hero-btn">Shop Now</a>
+                                    <a href="/category-landing" class="btn hero-btn">Belanja Sekarang</a>
                                 </div>
                             </div>
                         </div>
@@ -34,10 +34,10 @@
     <section class="category-area section-padding30">
         <div class="container-fluid">
             <!-- Section Tittle -->
-            <div class="row">
+            <div class="row ">
                 <div class="col-lg-12">
                     <div class="section-tittle text-center mb-85">
-                        <h2>Shop by Category</h2>
+                        <h2>Katalog Produk Kami</h2>
                     </div>
                 </div>
             </div>
@@ -55,9 +55,8 @@
                                         alt=""></a>
                                 <div class="category-caption">
                                     <h2 style="">{{ $item->nama }}</h2>
-                                    <span class="best"><a href="{{ route('kategori.id', ['id' => $item->id]) }}">Best New
-                                            Deals</a></span>
-                                    <span class="collection">New Collection</span>
+                                    <span class="best"><a href="{{ route('kategori.id', ['id' => $item->id]) }}">Harga Terbaik</a></span>
+                                    <span class="collection">Koleksi Terbaru</span>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +93,7 @@
                                         <a href="{{ route('produk.id', ['id' => $item->id]) }}">
                                             <img src="{{ asset('foto/product/' . $item->image) }}" alt=""></a>
                                         <div class="new-product">
-                                            <span>New</span>
+                                            <span>Baru</span>
                                         </div>
                                     </div>
                                     <div class="product-caption">

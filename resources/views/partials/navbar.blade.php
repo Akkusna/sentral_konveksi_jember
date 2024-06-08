@@ -26,7 +26,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                                 <div class="d-flex align-items-center">
-                                    <a href="#">
+                                    <a href="{{ route('home') }}">
                                         <img src="{{ asset('assets/img/logo_fix.png') }}" height="80px" alt="">
                                     </a>
                                     <div class="ms-2 d-flex flex-column">
@@ -41,7 +41,7 @@
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="/">Home</a></li>
-                                            <li><a class="hot" href="/category-landing">Kategori</a></li>
+                                            <li><a class="hot" href="/category-landing">Katalog Produk</a></li>
                                             <li><a href="/contact">Informasi Kontak</a></li>
                                             @if (auth()->check() && auth()->user()->is_admin == 0)
                                                 <li> <a href="{{ route('dashboard-user') }}"

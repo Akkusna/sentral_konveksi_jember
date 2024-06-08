@@ -13,7 +13,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $user = User::count();
+        $user = User::where('is_admin', '0')->count();
         $produk = Produk::count();
         $pesanan = Pesanan::count();
         $pengiriman = Pengiriman::count();

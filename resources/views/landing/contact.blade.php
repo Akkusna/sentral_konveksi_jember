@@ -42,9 +42,10 @@
                         <span class="contact-info__icon"><i class="ti-tablet"></i></span>
                         <div class="media-body">
                             <h3>WhatsApp</h3>
-                            <p>083853494485</p>
+                            <p><a href="https://wa.me/6283853494485" style="color: black; text-decoration: none;">083853494485</a></p>
                         </div>
                     </div>
+                    
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-email"></i></span>
                         <div class="media-body">

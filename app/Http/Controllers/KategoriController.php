@@ -49,4 +49,6 @@ class KategoriController extends Controller
 
         return view('landing.produk-list', compact('produk'));
     }
+
+    
 }

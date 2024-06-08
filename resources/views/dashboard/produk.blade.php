@@ -38,7 +38,7 @@
                                         alt="Product Image">
                                 </td>
                                 <td>{{ $item->deskripsi }}</td>
-                                <td>{{ $item->harga }}</td>
+                                <td>{{ $item->formatRupiah('harga') }}</td>
                                 <td>{{ $item->kategori->nama }}</td>
                                 <td>
                                     @foreach ($item->produkColor as $detail)

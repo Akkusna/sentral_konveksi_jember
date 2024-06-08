@@ -224,7 +224,7 @@
                                     <div class="icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                                     <div class="form-select" id="default-select">
                                         <select required name="pengiriman" id="pengiriman_select">
-                                            <option value="pengiriman">Pengiriman
+                                            <option value="pengiriman">Dikirim
                                             </option>
                                             <option value="ambil sendiri">Ambil Sendiri
                                             </option>
@@ -239,7 +239,7 @@
                                     <div class="icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                                     <div class="form-select" id="default-select">
                                         <select name="pengiriman_id">
-                                            <option value="" selected>Pilih Pengiriman</option>
+                                            <option value="" selected>Pilih Pengiriman Sebelumnya</option>
                                             @foreach ($pengiriman as $item)
                                                 <option value="{{ $item->id }}">{{ $item->alamat }} -
                                                     {{ $item->alamat_tujuan }} - {{ $item->jasa_ekspedisi }} -
@@ -247,6 +247,7 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    <small class="ml-2"> Note: Jika pengiriman anda sebelumnya tidak ada atau tidak sesuai bisa dapat anda abaikan pilihan ini.</small>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
