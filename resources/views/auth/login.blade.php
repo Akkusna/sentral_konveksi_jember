@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>Login</h2>
+                            <h2>Halaman Login</h2>
                         </div>
                     </div>
                 </div>
@@ -24,8 +24,8 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="login_part_text text-center">
                         <div class="login_part_text_iner">
-                            <h2>Baru mengenal Toko kami?</h2>
-                            <p>Silahkan lakukan pendaftaran akun terlebih dahulu</p>
+                            <h2>Baru mengenal Sentral Konveksi Jember?</h2>
+                            <p>Silahkan lakukan pendaftaran akun terlebih dahulu untuk melakukan pemesanan.</p>
                             <a href="/register" class="btn_3">Daftar Akun</a>
                         </div>
                     </div>

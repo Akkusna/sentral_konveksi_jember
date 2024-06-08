@@ -52,7 +52,7 @@
                                         <a href="{{ route('produk.id', ['id' => $item->id]) }}">
                                             <img src="{{ asset('foto/product/' . $item->image) }}" alt=""></a>
                                         <div class="new-product">
-                                            <span>New</span>
+                                            <span>Baru</span>
                                         </div>
                                     </div>
                                     <div class="product-caption">
@@ -143,7 +143,7 @@
                                 '" alt="">' +
                                 '</a>' +
                                 '<div class="new-product">' +
-                                '<span>New</span>' +
+                                '<span>Baru</span>' +
                                 '</div>' +
                                 '</div>' +
                                 '<div class="product-caption">' +

@@ -51,7 +51,7 @@
                                             @else
                                                 <li> <a href="{{ route('login') }}"
                                                         class="btn header-btn text-white text-center"
-                                                        style="display: flex;">Login</a>
+                                                        style="display: flex;">Login atau Daftar</a>
                                                 </li>
                                             @endif
                                         </ul>
