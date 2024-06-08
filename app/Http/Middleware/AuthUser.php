@@ -20,6 +20,6 @@ class AuthUser
             return $next($request);
         }
 
-        return redirect('/')->with('message', 'Access denied, user only, please login again');
+        return redirect('/')->with('message', 'Akses Ditolak, Silahkan login/daftar terlebih dahulu untuk melakukan pemesanan.');
     }
 }

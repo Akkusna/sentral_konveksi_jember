@@ -17,7 +17,7 @@ class isNoAuth
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check() && Auth::user()->is_admin == 1) {
-            return redirect('/dashboard')->with('message', 'Login successfuly as admin');
+            return redirect('/dashboard')->with('message', 'Login berhasil sebagai admin.');
         } else {
             return $next($request);
         }

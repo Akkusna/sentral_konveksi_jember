@@ -19,6 +19,6 @@ class isAuth
         if (Auth::check() && Auth::user()->is_admin == 1) {
             return $next($request);
         }
-        return redirect('/')->with('message', 'Access denied, admin only, please login again');
+        return redirect('/')->with('message', 'Akses ditolak, hanya admin, silahkan login terlebih dahulu');
     }
 }
