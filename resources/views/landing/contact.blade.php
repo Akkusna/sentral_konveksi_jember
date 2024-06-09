@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="contact-title">Lokasi</h2>
+                    <h2 class="contact-title">Lokasi Sentral Konveksi Jember</h2>
                 </div>
                 <div class="col-lg-8">
                     <iframe

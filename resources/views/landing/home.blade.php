@@ -144,7 +144,7 @@
         </div>
         <!-- Shape -->
         <div class="shape bounce-animate d-none d-md-block">
-            <img src="assets/img/categori/card-shape.png" alt="">
+            <img src="assets/img/categori/card-shape.png" alt="" class="responsive-shape">
         </div>
     </div>
     <!-- Best Product End-->
@@ -235,4 +235,11 @@
         </div>
     </div> --}}
     <!-- Best Collection End -->
+    <style>
+        .responsive-shape {
+        width: 25vw; /* Set the width to 50% of the viewport width */
+        max-width: 100%; /* Ensure the image doesn't exceed 100% of its container */
+        height: auto; /* Maintain aspect ratio */
+    }
+    </style>
 @endsection
