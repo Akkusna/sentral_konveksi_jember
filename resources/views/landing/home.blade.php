@@ -143,7 +143,7 @@
             </div>
         </div>
         <!-- Shape -->
-        <div class="shape bounce-animate d-none d-md-block">
+        <div class="shape bounce-animate  d-none d-md-block">
             <img src="assets/img/categori/card-shape.png" alt="" class="responsive-shape">
         </div>
     </div>
@@ -236,9 +236,12 @@
     <!-- Best Collection End -->
     <style>
         .responsive-shape {
-        width: 35vw; /* Set the width to 50% of the viewport width */
-        max-width: 100%; /* Ensure the image doesn't exceed 100% of its container */
-        height: auto; /* Maintain aspect ratio */
-    }
+    width: 480px; /* Set the width to a fixed size */
+    max-width: 100%; /* Ensure the image doesn't exceed 100% of its container */
+    height: auto; /* Maintain aspect ratio */
+    /* Optional: Add a minimum width */
+    min-width: 300px; /* Set a minimum width to prevent the image from becoming too small */
+}
+
     </style>
 @endsection
