@@ -16,6 +16,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UkuranController;
 use App\Http\Controllers\UserController;
+use App\Models\Pengiriman;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -94,7 +95,7 @@ Route::delete('/kategori/{id}/delete', [KategoriController::class, 'delete'])->n
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk')->middleware('isAuth');
 Route::post('/produk/store', [ProdukController::class, 'store'])->name('produk.store')->middleware('isAuth');
 Route::put('/produk/{id}/update', [ProdukController::class, 'update'])->name('produk.update')->middleware('isAuth');
-Route::delete('/produk/{id}/delet', [ProdukController::class, 'delete'])->name('produk.delete')->middleware('isAuth');
+Route::delete('/produk/{id}/delete', [ProdukController::class, 'delete'])->name('produk.delete')->middleware('isAuth');
 
 Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan')->middleware('isAuth');
 Route::put('/pesanan/{id}/update', [PesananController::class, 'update'])->name('pesanan-update')->middleware('isAuth');
@@ -115,5 +116,6 @@ Route::get('/pengiriman-pesanan', [PengirimanController::class, 'indexPengiriman
 Route::put('/pengiriman-pesanan-store', [PengirimanController::class, 'updatePesanan'])->name('pengiriman.pesanan.store')->middleware('isAuth');
 Route::post('/pengiriman-store', [PengirimanController::class, 'store'])->name('pengiriman.store')->middleware('isAuth');
 Route::put('/pengiriman-update/{id}', [PengirimanController::class, 'update'])->name('pengiriman.update')->middleware('isAuth');
+Route::delete('/pengiriman-delete/{id}', [PengirimanController::class, 'delete'])->name('pengiriman.delete')->middleware('isAuth');
 
 Route::get('/nota-scan', [NotaController::class, 'index'])->name('nota.scan')->middleware('isAuthUser');

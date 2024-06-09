@@ -47,6 +47,8 @@
                                 <td>
                                     <button class="btn icon btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#update{{ $item->id }}"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn icon btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#delete{{ $item->id }}"><i class="bi bi-trash"></i></button>
                                 </td>
                             </tr>
                         @endforeach
@@ -192,6 +194,41 @@
             </div>
         </div>
     @endforeach
+
+{{-- modal delete --}}
+@foreach ($pengiriman as $item)
+<div class="modal fade text-left" id="delete{{ $item->id }}" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel1" data-bs-backdrop="false" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel1">Hapus Data Pengiriman</h5>
+                <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <form action="{{ route('pengiriman.delete', $item->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <div class="modal-body">
+                    Apakah anda yakin untuk menghapus data ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Tutup</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ms-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Simpan</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endforeach
+
 @endsection
 @push('scripts')
     <script src="{{ asset('assets/extensions/simple-datatables/umd/simple-datatables.js') }}"></script>

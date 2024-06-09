@@ -79,4 +79,11 @@ class PengirimanController extends Controller
 
         return redirect()->route('pengiriman.pesanan')->with('message', 'Barang berhasil dikirim');
     }
+
+    public function delete($id)
+    {
+        $pengiriman = Pengiriman::findOrFail($id);
+        $pengiriman->delete();
+        return redirect()->route('pengiriman')->with('message', 'Data berhasil dihapus.');
+    }
 }
