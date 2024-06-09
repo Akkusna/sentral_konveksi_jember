@@ -162,8 +162,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="single-method mb-40">
                         <i class="ti-unlock"></i>
-                        <h6>Bahan Berkualitas</h6>
-                        <p>Bahan berkualitas: keandalan dan kualitas terbaik untuk Anda.</p>
+                        Dapatkan pesanan Anda dengan cepat dan tepat waktu.
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6">
@@ -237,7 +236,7 @@
     <!-- Best Collection End -->
     <style>
         .responsive-shape {
-        width: 25vw; /* Set the width to 50% of the viewport width */
+        width: 35vw; /* Set the width to 50% of the viewport width */
         max-width: 100%; /* Ensure the image doesn't exceed 100% of its container */
         height: auto; /* Maintain aspect ratio */
     }

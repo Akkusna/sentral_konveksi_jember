@@ -97,22 +97,22 @@
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="single-method mb-40">
                         <i class="ti-package"></i>
-                        <h6>Free Shipping Method</h6>
-                        <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
+                        <h6>Pengiriman Cepat</h6>
+                        <p>Dapatkan pesanan Anda dengan cepat dan tepat waktu.</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="single-method mb-40">
                         <i class="ti-unlock"></i>
-                        <h6>Secure Payment System</h6>
-                        <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
+                        <h6>Bahan Berkualitas</h6>
+                        <p>Bahan berkualitas: keandalan dan kualitas terbaik untuk Anda.</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6">
                     <div class="single-method mb-40">
                         <i class="ti-reload"></i>
-                        <h6>Secure Payment System</h6>
-                        <p>aorem ixpsacdolor sit ameasecur adipisicing elitsf edasd.</p>
+                        <h6>Terbaik dan Ekonomis</h6>
+                        <p>Temukan solusi terbaik dengan harga yang ekonomis.</p>
                     </div>
                 </div>
             </div>
