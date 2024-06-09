@@ -135,7 +135,7 @@
                     <div class="col-xl-8 col-lg-8">
                         <div class="best-product-caption">
                             <h2>Sentral Konveksi<br> Jember.</h2>
-                            <p>Terbaik dan Ekomonis Se-Tapal Kuda. <br> Temukan produk dan harga terbaik <br> di Sentral Konveksi Jember.</p>
+                            <p>Terbaik dan Ekonomis Se-Tapal Kuda. <br> Temukan produk dan harga terbaik <br> di Sentral Konveksi Jember.</p>
                             <a href="/category-landing" class="black-btn">Belanja Sekarang</a>
                         </div>
                     </div>
