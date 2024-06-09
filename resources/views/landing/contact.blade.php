@@ -49,9 +49,9 @@
                     <div class="media contact-info">
                         <span class="contact-info__icon"><i class="ti-email"></i></span>
                         <div class="media-body">
-                            <h3>sentralkonveksijember@gmail.com</h3>
-                            <p>Kirim masukan anda kapanpun</p>
-                        </div>
+                            <h3><a href="mailto:ssgarment.id@gmail.com"style="color: black; text-decoration: none;">ssgarment.id@gmail.com</a></h3>
+                            <p>Kirim kritik dan saran anda kapanpun</p>
+                        </div>                    
                     </div>
                 </div>
             </div>

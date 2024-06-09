@@ -134,8 +134,8 @@
                     </div>
                     <div class="col-xl-8 col-lg-8">
                         <div class="best-product-caption">
-                            <h2>Konveksi<br> Jember.</h2>
-                            <p>Temukan produk terbaik dari toko kami</p>
+                            <h2>Sentral Konveksi<br> Jember.</h2>
+                            <p>Terbaik dan Ekomonis Se-Tapal Kuda. <br> Temukan produk dan harga terbaik <br> di Sentral Konveksi Jember.</p>
                             <a href="/category-landing" class="black-btn">Belanja Sekarang</a>
                         </div>
                     </div>
@@ -234,7 +234,7 @@
         </div>
     </div> --}}
     <!-- Best Collection End -->
-    <style>
+    <style> 
         .responsive-shape {
     width: 480px; /* Set the width to a fixed size */
     max-width: 100%; /* Ensure the image doesn't exceed 100% of its container */
