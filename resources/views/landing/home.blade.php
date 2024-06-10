@@ -1,7 +1,7 @@
 @extends('layouts.main-landing')
 @section('content')
     <!-- slider Area Start -->
-    <div class="slider-area ">
+    <div class="slider-area mb-5 ">
         <!-- Mobile Menu -->
         <div class="slider-active">
             <div class="single-slider slider-height" data-background="{{ asset('assets/img/hero/h1_hero.jpg') }}">
@@ -31,7 +31,7 @@
     </div>
     <!-- slider Area End-->
     <!-- Category Area Start-->
-    <section class="category-area section-padding30">
+    {{-- <section class="category-area section-padding30">
         <div class="container-fluid">
             <!-- Section Tittle -->
             <div class="row ">
@@ -64,10 +64,11 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- Category Area End-->
     <!-- Latest Products Start -->
-    <section class="latest-product-area padding-bottom">
+
+    <section class="latest-product-area padding-bottom mt-5">
         <div class="container">
             <div class="row product-btn d-flex justify-content-end align-items-end">
                 <!-- Section Tittle -->

@@ -65,7 +65,7 @@
     <div class="container" style="width: 70mm; margin: 0 auto; text-align: center;">
         <div class="header" style="margin-bottom: 5px;">
             <h2>Sentral Konveksi Jember</h2>
-            <small>JL. Brigjen Katamso No.67 Kel. Wirolegi, Kec. Sumbersari, Kab. Jember</small>
+            <small>Krajan Lor,RT 5 RW 1, Desa Gumelar, Kecamatan Balung, Kabupaten Jember, Jawa Timur</small>
         </div>
         <p class="text-center">-------------------------------------------------------</p>
 
