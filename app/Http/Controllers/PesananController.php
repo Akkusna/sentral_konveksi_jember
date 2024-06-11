@@ -59,9 +59,41 @@ class PesananController extends Controller
     public function cetakNota($id)
     {
         $pesanan = Pesanan::findOrFail($id);
+        $totalHargaProduk = $pesanan->produk->harga * $pesanan->qty;
 
-        $pdf = FacadePdf::loadView('dashboard.nota-pdf', compact('pesanan'));
-        $pdf->setPaper(array(0, 0, 298, 420), 'portrait');
+        $extraCharges = [];
+        $biayaTambahan = 0;
+
+        $ukuranXXLCharge = 0;
+        $lenganPanjangCharge = 0;
+
+        foreach ($pesanan->detailPesanan as $detail) {
+            if ($detail->ukuran->ukuran === 'XXL') {
+                $ukuranXXLCharge += 7000 * $detail->qty;
+            }
+            if ($detail->ukuran_lengan === 'panjang') {
+                $lenganPanjangCharge += 10000 * $detail->qty;
+            }
+        }
+
+        if ($ukuranXXLCharge > 0) {
+            $extraCharges[] = [
+                'description' => 'Biaya Ukuran XXL',
+                'amount' => $ukuranXXLCharge
+            ];
+            $biayaTambahan += $ukuranXXLCharge;
+        }
+
+        if ($lenganPanjangCharge > 0) {
+            $extraCharges[] = [
+                'description' => 'Biaya Lengan Panjang',
+                'amount' => $lenganPanjangCharge
+            ];
+            $biayaTambahan += $lenganPanjangCharge;
+        }
+
+        $pdf = FacadePdf::loadView('dashboard.nota-pdf', compact('pesanan', 'extraCharges', 'biayaTambahan'));
+        $pdf->setPaper(array(0, 0, 298, 520), 'portrait');
 
         $timestamp = Carbon::now()->format('YmdHis');
 

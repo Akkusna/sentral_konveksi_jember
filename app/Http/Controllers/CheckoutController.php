@@ -38,6 +38,7 @@ class CheckoutController extends Controller
             'produk_id' => 'required',
             'ukuran_id' => 'required|array',
             'qty' => 'required|array',
+            'ukuran_lengan' => 'nullable|array',
             'qty.*' => 'required|numeric|min:1',
             'pengiriman' => 'required',
             'grand_total' => 'required',
@@ -72,6 +73,7 @@ class CheckoutController extends Controller
                 'pesanan_id' => $pesanan->id,
                 'color_id' => $color_id,
                 'ukuran_id' => $request->ukuran_id[$key],
+                'ukuran_lengan' => $request->ukuran_lengan[$key] ?? null,
                 'qty' => $request->qty[$key],
             ]);
         }

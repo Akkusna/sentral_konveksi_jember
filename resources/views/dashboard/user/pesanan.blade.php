@@ -67,6 +67,10 @@
                                         <div class="badge badge-pill bg-light-warning">
                                             Dalam Proses Produksi
                                         </div>
+                                    @elseif ($item->status === 'dalam pengiriman')
+                                        <div class="badge badge-pill bg-light-warning">
+                                            Dalam Proses Pengiriman
+                                        </div>
                                     @else
                                         <div class="badge badge-pill bg-light-success">
                                             Selesai
@@ -97,10 +101,10 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($item->status === 'selesai' || $item->status_pembayaran === 'dp')
-                                        <button class="btn icon btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#nota{{ $item->id }}"><i class="bi bi-receipt"></i></button>
-                                    @endif
+                                    {{-- @if ($item->status_pembayaran === 'dp') --}}
+                                    <button class="btn icon btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#nota{{ $item->id }}"><i class="bi bi-receipt"></i></button>
+                                    {{-- @endif --}}
                                 </td>
                             </tr>
                         @endforeach

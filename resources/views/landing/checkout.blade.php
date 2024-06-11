@@ -270,8 +270,7 @@
                                                 <div class="icon"><i class="fa fa-tshirt" aria-hidden="true"></i>
                                                 </div>
                                                 <div class="form-select" id="default-select">
-                                                    <select required name="lengan[]" class="lengan_select">
-                                                        <option value="" selected>Lengan</option>
+                                                    <select required name="ukuran_lengan[]" class="lengan_select">
                                                         <option value="panjang" data-extra-price="10000">Lengan Panjang
                                                         </option>
                                                         <option value="pendek" data-extra-price="0">Lengan Pendek</option>

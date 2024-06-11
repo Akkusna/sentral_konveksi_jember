@@ -94,6 +94,29 @@
                 <td class="text-right">Rp. {{ number_format($pesanan->produk->harga * $pesanan->qty, 0, ',', '.') }}
                 </td>
             </tr>
+            @if (!empty($extraCharges))
+                @foreach ($extraCharges as $charge)
+                    <tr>
+                        <td colspan="2" class="text-left">{{ $charge['description'] }}</td>
+                        <td class="text-right">Rp. {{ number_format($charge['amount'], 0, ',', '.') }}</td>
+                    </tr>
+                @endforeach
+                <tr>
+                    <td colspan="3" class="text-right">-----------------</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-right">Total Harga Produk</td>
+                    <td class="text-right">Rp. {{ number_format($pesanan->produk->harga * $pesanan->qty, 0, ',', '.') }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-right">Total Biaya Tambahan</td>
+                    <td class="text-right">Rp. {{ number_format($biayaTambahan, 0, ',', '.') }}</td>
+                </tr>
+            @endif
+            <tr>
+                <td colspan="3" class="text-right">-----------------</td>
+            </tr>
             <tr>
                 <td colspan="3" class="text-left">Status Pembayaran</td>
             </tr>

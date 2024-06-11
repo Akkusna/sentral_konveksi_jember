@@ -80,7 +80,7 @@
                                         data-bs-target="#update{{ $item->id }}"><i class="bi bi-pencil"></i></button>
                                     <button class="btn icon btn-primary" data-bs-toggle="modal"
                                         data-bs-target="#bahan{{ $item->id }}"><i class="bi bi-box-seam"></i></button>
-                                    @if ($item->status === 'selesai')
+                                    @if ($item->status === 'proses')
                                         <a href="{{ route('pesanan-nota', ['id' => $item->id]) }}"
                                             class="btn icon btn-danger" target="_blank">
                                             <i class="bi bi-receipt"></i>
@@ -99,7 +99,7 @@
     @foreach ($pesanan as $item)
         <div class="modal fade text-left" id="info{{ $item->id }}" tabindex="-1" role="dialog"
             aria-labelledby="myModalLabel1" data-bs-backdrop="false" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable modal-full" role="document">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="myModalLabel1">Info Detail Pesanan</h5>
@@ -107,138 +107,92 @@
                             <i data-feather="x"></i>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body m-2">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Nama Pelanggan</label>
-                                    <input type="text" id="first-name-vertical" required value="{{ $item->user->name }}"
-                                        class="form-control" readonly />
-                                </div>
+                                <h5>Nama Pelanggan : </h5>
+                                <p>{{ $item->user->name }}</p>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">No Telepon Pelanggan</label>
-                                    <input type="text" id="first-name-vertical" required
-                                        value="{{ $item->user->notelp }}" class="form-control" readonly />
-                                </div>
+                                <h5>No.Telp Pelanggan : </h5>
+                                <p>{{ $item->user->notelp }}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Alamat Pelanggan</label>
-                                    <input type="text" id="first-name-vertical" required
-                                        value="{{ $item->user->alamat }}" class="form-control" readonly />
-                                </div>
+                                <h5>Alamat Pelanggan : </h5>
+                                <p>{{ $item->user->notelp }}</p>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Detail Alamat</label>
-                                    <input type="text" id="first-name-vertical" required
-                                        value="{{ $item->detail_alamat }}" class="form-control" readonly />
-                                </div>
+                                <h5>Detail Alamat Pelanggan : </h5>
+                                <p>{{ $item->user->notelp }}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Produk</label>
-                                    <input type="text" id="first-name-vertical" required
-                                        value="{{ $item->produk->nama }}" class="form-control" readonly />
-                                </div>
+                                <h5>Nama Produk Pesanan : </h5>
+                                <p>{{ $item->produk->nama }}</p>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Harga Produk</label>
-                                    <input type="text" id="first-name-vertical" required
-                                        value="Rp. {{ number_format($item->produk->harga, 0, ',', '.') }}"
-                                        class="form-control" readonly />
-                                </div>
+                                <h5>Harga Produk : </h5>
+                                <p>Rp. {{ number_format($item->produk->harga, 0, ',', '.') }}</p>
                             </div>
                         </div>
-                        @foreach ($item->detailPesanan as $detail)
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="first-name-vertical">Warna</label>
-                                        <input type="text" id="first-name-vertical" required
-                                            value="{{ $detail->color->name_color }}" class="form-control" readonly />
+                        <h5>Detail Pesanan:</h5>
+                        <ul>
+                            @foreach ($item->detailPesanan as $detail)
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Warna:</h6>
+                                            <p>{{ $detail->color->name_color }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Kode Warna:</h6>
+                                            <p>{{ $detail->color->code_color }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Ukuran:</h6>
+                                            <p>{{ $detail->ukuran->ukuran }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Qty:</h6>
+                                            <p>{{ $detail->qty }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="first-name-vertical">Kode Warna</label>
-                                        <input type="text" id="first-name-vertical" required
-                                            value="{{ $detail->color->code_color }}" class="form-control" readonly />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="first-name-vertical">Ukuran</label>
-                                        <input type="text" id="first-name-vertical" required
-                                            value="{{ $detail->ukuran->ukuran }}" class="form-control" readonly />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="first-name-vertical">Qty</label>
-                                        <input type="text" id="first-name-vertical" required
-                                            value="{{ $detail->qty }}" class="form-control" readonly />
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                                </li>
+                            @endforeach
+                        </ul>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Qty</label>
-                                    <input type="text" id="first-name-vertical" required value="{{ $item->qty }}"
-                                        class="form-control" readonly />
-                                </div>
+                                <h5>Total Qty : </h5>
+                                <p>{{ $item->qty }}</p>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Total Harga Produk</label>
-                                    <input type="text" id="first-name-vertical" required
-                                        value="Rp. {{ number_format($item->grand_total, 0, ',', '.') }}"
-                                        class="form-control" readonly />
-                                </div>
+                                <h5>Total Harga : </h5>
+                                <p>Rp. {{ number_format($item->grand_total, 0, ',', '.') }}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Detail Pesanan</label>
-                                    <input type="text" id="first-name-vertical" required
-                                        value="{{ $item->detail_pesanan }}" class="form-control" readonly />
-                                </div>
+                                <h5>Catatan Pesanan : </h5>
+                                <p>{{ $item->detail_pesanan }}</p>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Status Pesanan</label>
-                                    <input type="text" id="first-name-vertical" required value="{{ $item->status }}"
-                                        class="form-control" readonly />
-                                </div>
+                                <h5>Status Pesanan : </h5>
+                                <p>{{ $item->status }}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Status Pembayaran</label>
-                                    <input type="text" id="first-name-vertical" required
-                                        value="{{ $item->status_pembayaran }}" class="form-control" readonly />
-                                </div>
+                                <h5>Status Pembayaran : </h5>
+                                <p>{{ $item->status_pembayaran }}</p>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="first-name-vertical">Tanggal Pesan</label>
-                                    <input type="text" id="first-name-vertical" required
-                                        value="{{ $item->created_at }}" class="form-control" readonly />
-                                </div>
+                                <h5>Tanggal Pemesanan:</h5>
+                                <p>{{ \Carbon\Carbon::parse($item->created_at)->translatedFormat('d F Y') }}</p>
                             </div>
                         </div>
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn" data-bs-dismiss="modal">

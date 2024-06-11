@@ -46,7 +46,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{ $item->estimasi }}
+                                    {{ $item->pengirimans->estimasi }}
                                 </td>
                                 <td>
                                     {{ \Carbon\Carbon::parse($item->pengirimans->tanggal_tiba)->format('d F Y') }}
