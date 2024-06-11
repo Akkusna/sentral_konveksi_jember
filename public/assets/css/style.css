@@ -8279,6 +8279,8 @@ del {
     box-shadow: none;
     width: 100%;
     padding: 10px 0 10px 0px;
+    overflow-y: auto; /* Tambahkan overflow untuk scroll */
+    max-height: 200px; /* Atur maksimum tinggi dropdown */
 }
 
 /* line 983, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_elements.scss */
@@ -8342,6 +8344,8 @@ del {
     box-shadow: none;
     width: 100%;
     padding: 10px 0 10px 0px;
+    overflow-y: auto; /* Tambahkan overflow untuk scroll */
+    max-height: 200px; /* Atur maksimum tinggi dropdown */
 }
 
 /* line 1028, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_elements.scss */

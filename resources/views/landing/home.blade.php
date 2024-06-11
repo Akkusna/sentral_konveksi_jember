@@ -68,7 +68,7 @@
     <!-- Category Area End-->
     <!-- Latest Products Start -->
 
-    <section class="latest-product-area padding-bottom mt-5">
+    <section class="latest-product-area padding-bottom mt-5 section-padding30">
         <div class="container">
             <div class="row product-btn d-flex justify-content-end align-items-end">
                 <!-- Section Tittle -->
@@ -136,7 +136,8 @@
                     <div class="col-xl-8 col-lg-8">
                         <div class="best-product-caption">
                             <h2>Sentral Konveksi<br> Jember.</h2>
-                            <p>Terbaik dan Ekonomis Se-Tapal Kuda. <br> Temukan produk dan harga terbaik <br> di Sentral Konveksi Jember.</p>
+                            <p>Terbaik dan Ekonomis Se-Tapal Kuda. <br> Temukan produk dan harga terbaik <br> di Sentral
+                                Konveksi Jember.</p>
                             <a href="/category-landing" class="black-btn">Belanja Sekarang</a>
                         </div>
                     </div>
@@ -235,14 +236,17 @@
         </div>
     </div> --}}
     <!-- Best Collection End -->
-    <style> 
+    <style>
         .responsive-shape {
-    width: 480px; /* Set the width to a fixed size */
-    max-width: 100%; /* Ensure the image doesn't exceed 100% of its container */
-    height: auto; /* Maintain aspect ratio */
-    /* Optional: Add a minimum width */
-    min-width: 300px; /* Set a minimum width to prevent the image from becoming too small */
-}
-
+            width: 480px;
+            /* Set the width to a fixed size */
+            max-width: 100%;
+            /* Ensure the image doesn't exceed 100% of its container */
+            height: auto;
+            /* Maintain aspect ratio */
+            /* Optional: Add a minimum width */
+            min-width: 300px;
+            /* Set a minimum width to prevent the image from becoming too small */
+        }
     </style>
 @endsection

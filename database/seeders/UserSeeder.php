@@ -18,10 +18,18 @@ class UserSeeder extends Seeder
     {
         $route = User::create([
             'email' => 'admin@gmail.com',
-            'name' => 'admin',
+            'name' => 'adminadmin',
             'email_verified_at' => now(),
             'password' => Hash::make('rahasia123'),
             'is_admin' => 1,
+        ]);
+
+        $route = User::create([
+            'email' => 'user@gmail.com',
+            'name' => 'useruser',
+            'email_verified_at' => now(),
+            'password' => Hash::make('rahasia123'),
+            'is_admin' => 0,
         ]);
     }
 }

@@ -17,15 +17,35 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required'
-        ])->validate();
+        $messages = [
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Email tidak valid.',
+            'password.required' => 'Password wajib diisi.',
+            'password.min' => 'Password harus minimal 8 karakter.'
+        ];
 
-        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed')
-            ]);
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|min:8'
+        ], $messages);
+
+        $validator->validate();
+
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $remember = $request->boolean('remember');
+
+        if (!Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+            $user = \App\Models\User::where('email', $email)->first();
+            if (!$user) {
+                throw ValidationException::withMessages([
+                    'email' => 'Email tidak terdaftar.'
+                ]);
+            } else {
+                throw ValidationException::withMessages([
+                    'password' => 'Password salah.'
+                ]);
+            }
         }
 
         $request->session()->regenerate();
@@ -38,6 +58,7 @@ class LoginController extends Controller
             return redirect()->route('home')->with('message', 'Berhasil Login');
         }
     }
+
 
     public function logout(Request $request)
     {

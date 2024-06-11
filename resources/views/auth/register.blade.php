@@ -59,6 +59,11 @@
                                     <input type="password" class="form-control" id="password" name="password" required
                                         value="" placeholder="Password">
                                 </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="password" class="form-control" id="password_confirmation"
+                                        name="password_confirmation" required value=""
+                                        placeholder="Konfirmasi Password">
+                                </div>
                                 <div class="col-md-12 form-group">
                                     <button type="submit" value="submit" class="btn_3">
                                         Daftar Akun

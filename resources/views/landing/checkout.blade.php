@@ -222,8 +222,9 @@
                             <div class="col-md-10">
                                 <div class="input-group-icon mt-10 form-group">
                                     <div class="icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
-                                    <div class="form-select" id="default-select">
-                                        <select required name="pengiriman" id="pengiriman_select">
+                                    <div class="form-select" style="width: 100%" id="default-select">
+                                        <select required name="pengiriman" id="pengiriman_select"
+                                            style="overflow-y: auto; max-height: 200px;">
                                             <option value="pengiriman">Dikirim
                                             </option>
                                             <option value="ambil sendiri">Ambil Sendiri
@@ -234,6 +235,7 @@
                                         biaya tambahan untuk ongkos kirim</small>
                                 </div>
                             </div>
+
                             <div class="col-md-10" id="biaya_pengiriman" style="display: none;">
                                 <div class="input-group-icon mt-10 form-group">
                                     <div class="icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
@@ -247,7 +249,8 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <small class="ml-2"> Note: Jika pengiriman anda sebelumnya tidak ada atau tidak sesuai bisa dapat anda abaikan pilihan ini.</small>
+                                    <small class="ml-2"> Note: Jika pengiriman anda sebelumnya tidak ada atau tidak
+                                        sesuai bisa dapat anda abaikan pilihan ini.</small>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
