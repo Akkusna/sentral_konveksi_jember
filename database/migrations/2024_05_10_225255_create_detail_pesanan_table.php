@@ -37,6 +37,7 @@ return new class extends Migration
             $table->foreignId('color_id')->constrained('color')->onDelete('cascade')->nullable();
             $table->foreignId('ukuran_id')->constrained('ukuran')->onDelete('cascade')->nullable();
             $table->string('qty')->nullable();
+            $table->string('ukuran_lengan')->nullable();
             $table->timestamps();
         });
     }

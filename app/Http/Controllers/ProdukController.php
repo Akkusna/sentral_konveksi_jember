@@ -28,6 +28,7 @@ class ProdukController extends Controller
             'nama' => 'required',
             'deskripsi' => 'required',
             'harga' => 'required',
+            'lengan' => 'required',
             'color' => 'required|array',
             'color.*' => 'exists:color,id',
             'ukuran' => 'required|array',
@@ -47,6 +48,7 @@ class ProdukController extends Controller
         $produk = Produk::create([
             'kategori_id' => $validatedData['kategori_id'],
             'nama' => $validatedData['nama'],
+            'lengan' => $validatedData['lengan'],
             'image' => $fileNameImage,
             'deskripsi' => $validatedData['deskripsi'],
             'harga' => $validatedData['harga'],
@@ -89,6 +91,8 @@ class ProdukController extends Controller
 
         $produk = Produk::findOrFail($id);
 
+        $lengan = $request->has('customCheck') ? 1 : 0;
+
         if ($request->hasFile('image')) {
             // Hapus gambar lama jika ada
             if (file_exists(public_path('foto/product/' . $produk->image))) {
@@ -108,6 +112,7 @@ class ProdukController extends Controller
             'nama' => $validatedData['nama'],
             'deskripsi' => $validatedData['deskripsi'],
             'harga' => $validatedData['harga'],
+            'lengan' => $lengan,
         ]);
 
         // Update warna

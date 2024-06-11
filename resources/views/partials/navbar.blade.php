@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* Gaya teks pada navbar */
         #navigation li a {
-            color: black; /* Warna teks default */
-            text-decoration: none; /* Hilangkan garis bawah */
-            transition: color 0.3s; /* Efek transisi saat mengubah warna */
+            color: black;
+            /* Warna teks default */
+            text-decoration: none;
+            /* Hilangkan garis bawah */
+            transition: color 0.3s;
+            /* Efek transisi saat mengubah warna */
         }
 
         /* Gaya teks pada navbar saat kursor diarahkan */
         #navigation li a:hover {
-            color: rgb(9, 9, 251); /* Ubah warna teks menjadi biru dongker saat kursor diarahkan */
+            color: rgb(9, 9, 251);
+            /* Ubah warna teks menjadi biru dongker saat kursor diarahkan */
         }
     </style>
 </head>
+
 <body>
     <header>
         <!-- Header Start -->
@@ -27,13 +33,7 @@
                         <div class="col-xl-12" style="height: 30px">
                             <div class="row d-flex align-items-end justify-content-end">
                                 <div class="header-info-right">
-                                    {{-- <ul>
-                                        <li><a href="login.html">My Account</a></li>
-                                        <li><a href="product_list.html">Wish List</a></li>
-                                        <li><a href="cart.html">Shopping</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                    </ul> --}}
+
                                 </div>
                             </div>
                         </div>
@@ -102,5 +102,6 @@
         </div>
         <!-- Header End -->
     </header>
-    </body>
+</body>
+
 </html>

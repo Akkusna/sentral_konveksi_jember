@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Bank;
 use App\Models\Color;
 use App\Models\Kategori;
 use App\Models\Ukuran;
@@ -27,6 +28,9 @@ class PesananSeeder extends Seeder
         $ukuran = Ukuran::create([
             'ukuran' => 'XL'
         ]);
+        $ukuran = Ukuran::create([
+            'ukuran' => 'XXL'
+        ]);
 
         $warna = Color::create([
             'name_color' => 'Blue',
@@ -35,11 +39,15 @@ class PesananSeeder extends Seeder
 
         $warna = Color::create([
             'name_color' => 'Green',
-            'code_color' => '##00F75B'
+            'code_color' => '#00F75B'
         ]);
 
         $kategori = Kategori::create([
             'nama' => 'Jacket',
+        ]);
+        $bank = Bank::create([
+            'nama' => 'BRI',
+            'no_rekening' => '2012277221',
         ]);
     }
 }

@@ -48,7 +48,7 @@
                                 </td>
                                 <td>
                                     @foreach ($item->produkUkuran as $detail)
-                                        <p>{{ $detail->ukuran->ukuran }}</p>
+                                        {{ $detail->ukuran->ukuran }},
                                     @endforeach
                                 </td>
                                 <td>
@@ -124,7 +124,7 @@
                                 </optgroup>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group mb-2">
                             <label for="ukuran">Pilih Ukuran</label>
                             <select class="choices form-select multiple-remove" id="ukuran" multiple="multiple"
                                 name="ukuran[]">
@@ -137,6 +137,15 @@
                                 </optgroup>
                             </select>
                         </div>
+                        <div class="form-check m-3">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="form-check-input form-check-primary form-check-glow"
+                                    name="customCheck" id="checkboxGlow1">
+                                <label class="form-check-label" for="checkboxGlow1">Tersedia ukuran lengan</label>
+                            </div>
+                        </div>
+                        <!-- Hidden input untuk nilai lengan -->
+                        <input type="hidden" name="lengan" id="lengan" value="0">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn" data-bs-dismiss="modal">
@@ -159,17 +168,19 @@
         <div class="modal fade text-left" id="update{{ $produkItem->id }}" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLongTitle" data-bs-backdrop="false" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="myModalLabel1">Tambah Produk</h5>
-                        <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
-                            <i data-feather="x"></i>
-                        </button>
-                    </div>
-                    <form action="{{ route('produk.update', $produkItem->id) }}" enctype="multipart/form-data"
-                        method="POST">
-                        @csrf
-                        @method('PUT')
+                <form action="{{ route('produk.update', $produkItem->id) }}" enctype="multipart/form-data"
+                    method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="myModalLabel1">Tambah Produk</h5>
+                            <button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+                                aria-label="Close">
+                                <i data-feather="x"></i>
+                            </button>
+                        </div>
+
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="nama">Nama</label>
@@ -258,6 +269,14 @@
                                     </optgroup>
                                 </select>
                             </div>
+                            <div class="form-check m-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="form-check-input form-check-primary form-check-glow"
+                                        name="customCheck" id="checkboxGlow1"
+                                        {{ $produkItem->lengan == 1 ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="checkboxGlow1">Tersedia ukuran lengan</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn" data-bs-dismiss="modal">
@@ -269,8 +288,8 @@
                                 <span class="d-none d-sm-block">Simpan</span>
                             </button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     @endforeach
@@ -314,4 +333,18 @@
     <script src="{{ asset('assets/static/js/pages/simple-datatables.js') }}"></script>
     <script src="{{ asset('assets/extensions/choices.js/public/assets/scripts/choices.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/form-element-select.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkbox = document.getElementById('checkboxGlow1');
+            const hiddenInput = document.getElementById('lengan');
+
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    hiddenInput.value = '1';
+                } else {
+                    hiddenInput.value = '0';
+                }
+            });
+        });
+    </script>
 @endpush

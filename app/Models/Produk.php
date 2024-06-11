@@ -17,6 +17,7 @@ class Produk extends Model
         'image',
         'deskripsi',
         'harga',
+        'lengan',
     ];
 
     protected $table = 'produk';

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("nama", 225);
             $table->string("image", 225);
             $table->text("deskripsi");
+            $table->tinyInteger("lengan")->default(0);
             $table->integer("harga");
             $table->timestamps();
         });

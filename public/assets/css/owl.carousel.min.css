@@ -49,7 +49,9 @@
 .owl-carousel .owl-item img {
     display: block;
     width: 100%;
-    height: 100%;
+    object-fit: cover; /* Menyembunyikan gambar yang berlebihan dan menjaga proporsi */
+    object-position: center; /* Memastikan gambar tetap terpusat */
+    height: 375px;
 }
 .owl-carousel .owl-dots.disabled,
 .owl-carousel .owl-nav.disabled {

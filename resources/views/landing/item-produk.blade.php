@@ -24,13 +24,32 @@
     <div class="whole-wrap">
         <div class="container box_1170">
             <div class="section-top-border">
-                <h3 class="mb-30">Detail Produk</h3>
+                <h3 class="mb-5">Detail Produk</h3>
                 <div class="row">
-                    <div class="col-md-3">
-                        <img src="{{ asset('foto/product/' . $produk->image) }}" height="300px" width="250px"
-                            alt="" class="img-fluid">
+                    <div class="col-md-4">
+                        <div class="product_image_area">
+                            {{-- <div class="col-md-3">
+                            <img src="{{ asset('foto/product/' . $produk->image) }}" height="300px" width="250px"
+                                alt="" class="img-fluid">
+                        </div> --}}
+                            <div class="product_img_slide owl-carousel">
+                                <div class="single_product_img">
+                                    <img src="{{ asset('foto/product/' . $produk->image) }}" alt="#"
+                                        class="img-fluid">
+                                </div>
+                                <div class="single_product_img">
+                                    <img src="{{ asset('assets/img/product/single_product.png') }}" alt="#"
+                                        class="img-fluid">
+                                </div>
+                                <div class="single_product_img">
+                                    <img src="{{ asset('assets/img/product/single_product.png') }}" alt="#"
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-9 mt-sm-20">
+                    {{-- </div> --}}
+                    <div class="col-md-8 mt-sm-20">
                         <h3>{{ $produk->nama }}<br>
                         </h3>
 

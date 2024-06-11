@@ -14,6 +14,7 @@ class DetailPesanan extends Model
         'ukuran_id',
         'color_id',
         'qty',
+        'ukuran_lengan',
     ];
 
     protected $table = 'detail_pesanan';

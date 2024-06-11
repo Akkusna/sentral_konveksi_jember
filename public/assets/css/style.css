@@ -8954,7 +8954,7 @@ del {
 
 /* line 103, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_single_product.scss */
 .product_image_area {
-    margin-top: 150px;
+    margin-top: 0px;
 }
 
 @media (max-width: 991px) {
@@ -8972,9 +8972,9 @@ del {
     font-size: 14px;
     line-height: 40px;
     border-radius: 50%;
-    border: 1px solid #e4d3df;
+    border: 1px solid #19244a;
     color: #fff;
-    background-color: #e4d3df;
+    background-color: #19244a;
     position: absolute;
     left: 30px;
     top: 54%;
@@ -8985,7 +8985,7 @@ del {
 /* line 122, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_single_product.scss */
 .product_image_area .owl-nav button.owl-prev:hover,
 .product_image_area .owl-nav button.owl-next:hover {
-    background-color: #828bb2;
+    background-color: #19244a;
     color: #fff;
 }
 
@@ -9173,6 +9173,13 @@ input:focus {
     background-color: #fff;
     margin: 0 auto;
     text-align: center;
+}
+
+@font-face {
+    font-family: "Airstrike";
+    src: url("/assets/fonts/airstrike.ttf") format("truetype"); /* Ganti dengan path yang benar */
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* line 25, ../../SAIFUL/Running_project/250 eCommerce_HTML/250 eCommerce_HTML/250 eCommerce_HTML/assets/scss/_trending_items.scss */
