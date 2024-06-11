@@ -27,7 +27,8 @@ class CheckoutController extends Controller
         $pengiriman = Pengiriman::whereHas('pesanan', function ($query) use ($userId) {
             $query->where('user_id', $userId);
         })->get();
-        return view('landing.checkout', compact('produk', 'bank', 'warna', 'ukuran', 'pengiriman'));
+        $lengan = $produk->lengan;
+        return view('landing.checkout', compact('produk', 'bank', 'warna', 'ukuran', 'pengiriman', 'lengan'));
     }
 
     public function store_pesanan(Request $request)

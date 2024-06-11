@@ -33,10 +33,12 @@
                                 <img src="{{ asset('assets/img/logo_fix.png') }}" height="80px" alt="">
                                 <div class="ms-2 d-flex flex-column">
                                     <h1 class="mb-0" style="margin-bottom: 0; font-family: Airstrike">Sentral</h1>
-                                    <p class="mb-0" style="margin-top: -5px;">Konveksi Jember</p>
+                                    <p class="mb-0" style="margin-top: -5px; font-family: Inter;font-weight: 500;">
+                                        Konveksi Jember</p>
                                 </div>
                             </div>
-                            <h1 style="font-family: Inter;font-weight: 700; font-size: 5rem;">PUSAT PRODUK BORDIR DAN
+                            <h1 style="font-family: Inter;font-weight: 900; font-size: 5rem; color: #e40614">PUSAT
+                                PRODUK BORDIR DAN
                                 SABLON</h1>
                             <div class="footer-tittle text-center">
                                 <div class="footer-pera">
@@ -44,7 +46,8 @@
                                         POLO,
                                         ALMAMATER, ROMPI,TOPI DLL
                                     </h1>
-                                    <h1 style="font-family: Inter;font-weight: 700; font-size: 3rem;"> BIKIN DISINI &
+                                    <h1 style="font-family: Inter;font-weight: 700; font-size: 3rem;color: #e40614">
+                                        BIKIN DISINI &
                                         DAPATKAN KEUNTUNGANNYA
                                     </h1>
                                     <h1 style="font-family: Inter;font-weight: 700; font-size: 2.5rem;"> JUGA MELAYANI

@@ -58,6 +58,8 @@
                 row.find('.color_select').val(''); // Reset dropdown color
                 row.find('.ukuran_select').val(''); // Reset dropdown size
                 row.find('input[type="number"]').val(''); // Reset input quantity
+                row.find('.lengan_select').val('');
+                row.find('input[type="number"]').val('');
                 $('#pesanan_container').append(row);
                 updateDropdownOptions(); // Update dropdown options after adding a new row
             });
@@ -90,24 +92,64 @@
                 var orderSummary = $('#order_summary');
                 orderSummary.empty(); // Clear the order summary
 
+                // $('.pesanan_row').each(function() {
+                //     var warna = $(this).find('.color_select option:selected').text();
+                //     var ukuran = $(this).find('.ukuran_select option:selected').text();
+                //     var qty = $(this).find('input[type="number"]').val();
+                //     var hargaProduk = {{ $produk->harga }};
+                //     var totalItemHarga = hargaProduk * qty;
+                //     var lengan = $(this).find('.lengan_select option:selected').text();
+
+
+                //     totalHarga += totalItemHarga;
+                //     orderSummary.append('<li>' + warna + ' ' + ukuran +
+                //         ' <span class="middle"> x ' +
+                //         qty + '</span> <span class="last"> = Rp. ' + totalItemHarga
+                //         .toLocaleString() +
+                //         '</span></li>');
+                // });
+
+                // $('#totalPrice').text('Rp. ' + totalHarga.toLocaleString());
+
+                // // Remove commas from totalHarga and set it as integer
+                // var parsedTotal = totalHarga.toString().replace(/,/g, '');
+                // $('#grandTotalInput').val(parsedTotal);
                 $('.pesanan_row').each(function() {
                     var warna = $(this).find('.color_select option:selected').text();
                     var ukuran = $(this).find('.ukuran_select option:selected').text();
                     var qty = $(this).find('input[type="number"]').val();
+                    var lengan = $(this).find('.lengan_select option:selected').text();
+
                     var hargaProduk = {{ $produk->harga }};
-                    var totalItemHarga = hargaProduk * qty;
+                    var extraPriceSize = parseInt($(this).find('.ukuran_select option:selected')
+                        .data('extra-price') || 0);
+                    var extraPriceLengan = parseInt($(this).find('.lengan_select option:selected')
+                        .data('extra-price') || 0);
+
+                    var basePrice = hargaProduk * qty;
+                    var extraSizePrice = extraPriceSize * qty;
+                    var extraLenganPrice = extraPriceLengan * qty;
+                    var totalItemHarga = basePrice + extraSizePrice + extraLenganPrice;
 
                     totalHarga += totalItemHarga;
-                    orderSummary.append('<li>' + warna + ' ' + ukuran +
-                        ' <span class="middle"> x ' +
-                        qty + '</span> <span class="last"> = Rp. ' + totalItemHarga
-                        .toLocaleString() +
-                        '</span></li>');
+
+                    // Rincian harga untuk setiap item
+                    orderSummary.append('<li>Warna: ' + warna + '</li>');
+                    orderSummary.append('<li>Ukuran: ' + ukuran + ' (Tambahan Rp. ' + extraPriceSize
+                        .toLocaleString() + ' x ' + qty + ' = Rp. ' + extraSizePrice
+                        .toLocaleString() + ')</li>');
+                    orderSummary.append('<li>Lengan: ' + lengan + ' (Tambahan Rp. ' +
+                        extraPriceLengan.toLocaleString() + ' x ' + qty + ' = Rp. ' +
+                        extraLenganPrice.toLocaleString() + ')</li>');
+                    orderSummary.append('<li>Qty: ' + qty + '</li>');
+                    orderSummary.append('<li>Harga Dasar: Rp. ' + basePrice.toLocaleString() +
+                        '</li>');
+                    orderSummary.append('<li>Total Harga Item: Rp. ' + totalItemHarga
+                        .toLocaleString() + '</li>');
+                    orderSummary.append('<hr>');
                 });
 
                 $('#totalPrice').text('Rp. ' + totalHarga.toLocaleString());
-
-                // Remove commas from totalHarga and set it as integer
                 var parsedTotal = totalHarga.toString().replace(/,/g, '');
                 $('#grandTotalInput').val(parsedTotal);
             });
@@ -167,6 +209,7 @@
                                 <input type="text" class="form-control" readonly id="add1" required
                                     value="{{ auth()->user()->alamat }}" />
                             </div>
+
                             <div class="row ml-1 mt-3">
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" id="add1" required readonly
@@ -176,12 +219,25 @@
                                     <button type="button" class="genric-btn info-border medium add_row mt-2">Tambah
                                     </button>
                                 </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <small class="ml-2"> Note: </small>
+                                <ul>
+                                    <li>
+                                        <small class="ml-2">Lengan Panjang + Rp 10.000</small>
+                                    </li>
+                                    <li>
+                                        <small class="ml-2">Ukuran XXL + Rp 7.000</small>
+                                    </li>
+                                </ul>
+
                             </div>
                             <div id="pesanan_container">
-                                <div class="pesanan_row row ml-1 mt-3">
-                                    <div class="col-md-4">
+                                <div class="pesanan_row row mt-3">
+                                    <div class="col-md-3" style="margin-right: -2px">
                                         <div class="input-group-icon mt-10 form-group">
-                                            <div class="icon"><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
+                                            <div class="icon"><i class="fa fa" aria-hidden="true"></i></div>
                                             <div class="form-select" id="default-select">
                                                 <select required name="color_id[]" class="color_select">
                                                     <option value="" selected>Pilih Warna</option>
@@ -193,21 +249,38 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3" style="margin-right: -5px">
                                         <div class="input-group-icon mt-10 form-group">
-                                            <div class="icon"><i class="fa fa-paint-brush" aria-hidden="true"></i></div>
+                                            <div class="icon"><i class="fa fa-ruler" aria-hidden="true"></i></div>
                                             <div class="form-select" id="default-select">
                                                 <select required name="ukuran_id[]" class="ukuran_select">
                                                     <option value="" selected>Pilih Ukuran</option>
                                                     @foreach ($ukuran as $item)
-                                                        <option value="{{ $item->ukuran->id }}">
+                                                        <option value="{{ $item->ukuran->id }}"
+                                                            data-extra-price="{{ $item->ukuran->ukuran == 'XXL' ? 7000 : 0 }}">
                                                             {{ $item->ukuran->ukuran }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    @if ($lengan == 1)
+                                        <div class="col-md-3" style="margin-right: -5px">
+                                            <div class="input-group-icon mt-10 form-group">
+                                                <div class="icon"><i class="fa fa-tshirt" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="form-select" id="default-select">
+                                                    <select required name="lengan[]" class="lengan_select">
+                                                        <option value="" selected>Lengan</option>
+                                                        <option value="panjang" data-extra-price="10000">Lengan Panjang
+                                                        </option>
+                                                        <option value="pendek" data-extra-price="0">Lengan Pendek</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    <div class="col-md-2" style="margin-right: -8px">
                                         <div class="input-group-icon mt-10 form-group">
                                             <input type="number" required name="qty[]" placeholder="Qty"
                                                 class="form-control">
@@ -215,7 +288,7 @@
                                     </div>
                                     <div class="col-md-1 mt-3">
                                         <button type="button"
-                                            class="genric-btn danger-border medium remove_row">Hapus</button>
+                                            class="genric-btn danger-border medium remove_row">-</button>
                                     </div>
                                 </div>
                             </div>
@@ -274,7 +347,7 @@
                                 <ul class="list">
                                     <li>
                                         <a href="#">Produk
-                                            <span>Total</span>
+                                            <span>Total Pembayaran</span>
                                         </a>
                                     </li>
                                     <li>

@@ -44,8 +44,10 @@
                                         required placeholder="Email">
                                 </div>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" class="form-control" id="password" name="password" required
-                                        value="" placeholder="Password">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" id="password" name="password" required
+                                            placeholder="Password">
+                                    </div>
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <button type="submit" value="submit" class="btn_3">
@@ -62,3 +64,16 @@
     </section>
     <!--================login_part end =================-->
 @endsection
+@push('scripts')
+    <script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+    </script>
+@endpush
